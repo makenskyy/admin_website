@@ -8,7 +8,9 @@
 }
 
 .left_container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   width: 50%;
 }
 
@@ -19,8 +21,9 @@
 
 .item {
   z-index: 99;
-  flex: 1;
+  flex: 1 auto;
   margin: 0px 20px;
+  margin-bottom: 20px;
   padding: 30px;
   border-radius: 2px;
   cursor: pointer;
@@ -50,41 +53,6 @@
   font-weight: 200;
 }
 
-
-.pendingOrdersContainer {
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-}
-
-.pendingOrders {
-  flex: 1;
-  margin: 40px 20px;
-  padding: 30px;
-  border-radius: 2px;
-  cursor: pointer;
-  box-shadow: rgb(0 0 0 / 12%) 0px 1px 6px, rgb(0 0 0 / 12%) 0px 1px 4px;
-  background-color: white;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-
-/* dummy это для pending orders  */
-.dummy {
-  margin: 0px 20px;
-  padding: 30px;
-  flex: 1;
-  z-index: 1;
-}
-
-.pendingOrdersText {
-  font-size: 20px;
-}
-
-
 .list {
   list-style: none;
 }
@@ -100,4 +68,17 @@
 }
 .list_element:hover {
   background-color: #E5E5E5;
+}
+
+
+
+.leftContainerItem1 { grid-area: 1 / 1 / 2 / 2; }
+.leftContainerItem2 { grid-area: 1 / 2 / 2 / 3; }
+.leftContainerItem3 { grid-area: 2 / 1 / 3 / 3; }
+
+
+
+.pendingOrdersTitle {
+  font-weight: 400;
+  font-size: 25px;
 }

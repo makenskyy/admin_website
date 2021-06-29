@@ -11,7 +11,7 @@ const FeaturedInfo = () => {
     <>
       <div className="itemContainer">
         <div className="left_container">
-          <div className="item">
+          <div className="item leftContainerItem1">
             <div className="item_left">
               <span className="quantity">0 $</span>
               <br></br>
@@ -21,7 +21,7 @@ const FeaturedInfo = () => {
               <AttachMoneyIcon className="itemIcon" />
             </div>
           </div>
-          <div className="item">
+          <div className="item leftContainerItem2">
             <div className="item_left">
               <span className="quantity">0</span>
               <br></br>
@@ -31,14 +31,22 @@ const FeaturedInfo = () => {
               <ShoppingCartIcon className="itemIcon" />
             </div>
           </div>
+          <div className="item leftContainerItem3">
+            <div className="item_left">
+              <span className="pendingOrdersTitle">Pending orders</span>
+            </div>
+
+          </div>
+
         </div>
         <div className="right_container">
           <div className="item">
             <div className="item_left">
-              <span className="quantity">44</span>
+              <span className="quantity">6</span>
               <br></br>
               <span className="title">Pending Reviews</span>
               <ul className="list">
+                <li className="list_element">review</li>
                 <li className="list_element">review</li>
                 <li className="list_element">review</li>
                 <li className="list_element">review</li>
@@ -60,14 +68,6 @@ const FeaturedInfo = () => {
             </div>
           </div>
         </div>
-
-      </div>
-
-      <div className="pendingOrdersContainer">
-        <div className="pendingOrders">
-          <p className="pendingOrdersText">Pending orders</p>
-        </div>
-        <div className="dummy"></div>
       </div>
     </>
   )
