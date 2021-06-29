@@ -3,6 +3,18 @@
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
+
+  align-items: flex-start;
+}
+
+.left_container {
+  display: flex;
+  width: 50%;
+}
+
+.right_container {
+  display: flex;
+  width: 50%;
 }
 
 .item {
@@ -14,10 +26,9 @@
   cursor: pointer;
   box-shadow: rgb(0 0 0 / 12%) 0px 1px 6px, rgb(0 0 0 / 12%) 0px 1px 4px;
   background-color: white;
-
   display: flex;
   justify-content: space-between;
-  align-items: center;
+
 }
 
 .itemIcon {
@@ -71,4 +82,22 @@
 
 .pendingOrdersText {
   font-size: 20px;
+}
+
+
+.list {
+  list-style: none;
+}
+
+.list_element {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  margin: 5px 0;
+  width: 90%;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.list_element:hover {
+  background-color: #E5E5E5;
 }

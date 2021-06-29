@@ -10,47 +10,59 @@ const FeaturedInfo = () => {
   return (
     <>
       <div className="itemContainer">
-        <div className="item">
-          <div className="item_left">
-            <span className="quantity">0 $</span>
-            <br></br>
-            <span className="title">Monthly Revenue</span>
+        <div className="left_container">
+          <div className="item">
+            <div className="item_left">
+              <span className="quantity">0 $</span>
+              <br></br>
+              <span className="title">Monthly Revenue</span>
+            </div>
+            <div className="item_right">
+              <AttachMoneyIcon className="itemIcon" />
+            </div>
           </div>
-          <div className="item_right">
-            <AttachMoneyIcon className="itemIcon" />
-          </div>
-        </div>
-        <div className="item">
-          <div className="item_left">
-            <span className="quantity">0</span>
-            <br></br>
-            <span className="title">New Orders</span>
-          </div>
-          <div className="item_right">
-            <ShoppingCartIcon className="itemIcon" />
-          </div>
-        </div>
-        <div className="item">
-          <div className="item_left">
-            <span className="quantity">44</span>
-            <br></br>
-            <span className="title">Pending Reviews</span>
-          </div>
-          <div className="item_right">
-            <CommentIcon className="itemIcon" />
+          <div className="item">
+            <div className="item_left">
+              <span className="quantity">0</span>
+              <br></br>
+              <span className="title">New Orders</span>
+            </div>
+            <div className="item_right">
+              <ShoppingCartIcon className="itemIcon" />
+            </div>
           </div>
         </div>
-        <div className="item">
-          <div className="item_left">
-            <span className="quantity">0 </span>
-            <br></br>
-            <span className="title">New Customers</span>
+        <div className="right_container">
+          <div className="item">
+            <div className="item_left">
+              <span className="quantity">44</span>
+              <br></br>
+              <span className="title">Pending Reviews</span>
+              <ul className="list">
+                <li className="list_element">review</li>
+                <li className="list_element">review</li>
+                <li className="list_element">review</li>
+                <li className="list_element">review</li>
+              </ul>
+            </div>
+            <div className="item_right">
+              <CommentIcon className="itemIcon" />
+            </div>
           </div>
-          <div className="item_right">
-            <PersonAddIcon className="itemIcon" />
+          <div className="item">
+            <div className="item_left">
+              <span className="quantity">0 </span>
+              <br></br>
+              <span className="title">New Customers</span>
+            </div>
+            <div className="item_right">
+              <PersonAddIcon className="itemIcon" />
+            </div>
           </div>
         </div>
+
       </div>
+
       <div className="pendingOrdersContainer">
         <div className="pendingOrders">
           <p className="pendingOrdersText">Pending orders</p>
