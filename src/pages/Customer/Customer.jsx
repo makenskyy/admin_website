@@ -13,7 +13,7 @@ export const Customer = () => {
   return (
     <div className="customer">
       <div className="titleContainer">
-        <h1 className="title">Edit user</h1>
+        <h1 className="title">Edit costumer</h1>
       </div>
       <div className="container">
         <div className="show">
