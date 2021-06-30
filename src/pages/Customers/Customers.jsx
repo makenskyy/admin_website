@@ -28,7 +28,7 @@ export default function Customers() {
         return (
           <>
             <Link className='orderLink' to={`/orders/${params.row.id}`} >
-              <p className="orderLinkText">too see here</p>
+              <button className="orderLinkButton">view orders</button>
             </Link>
           </>
         )

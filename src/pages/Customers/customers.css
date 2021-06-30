@@ -22,3 +22,12 @@
   color: black;
   font-weight: 600;
 }
+
+.orderLinkButton {
+  border: none;
+  background-color: #00bcd4;
+  padding: 5px;
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+}
