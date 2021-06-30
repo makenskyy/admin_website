@@ -18,6 +18,12 @@ const Sidebar = () => {
                 <p className="sidebarListItemName">Dashboard</p>
               </li>
             </Link>
+            <Link className='linkStyle' to='/products'>
+              <li className="sidebarListItem">
+                <PersonIcon className="sidebarIcon" />
+                <p className="sidebarListItemName">Products</p>
+              </li>
+            </Link>
             <Link className='linkStyle' to='/customers'>
               <li className="sidebarListItem">
                 <PersonIcon className="sidebarIcon" />

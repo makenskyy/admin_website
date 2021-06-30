@@ -22,3 +22,14 @@ export const userRows = [
   { id: 20, username: 'David', firstName: 'De gea', email: "david@gmail.com", transaction: "$140" },
   { id: 21, username: 'Leo', firstName: 'Mesisi', email: "messi@gmail.com", transaction: "$120" },
 ]
+
+export const productRows = [
+  { id: 1, productName: "Iphone 12", status: "active", quantity: 14, price: "$400" },
+  { id: 2, productName: "Macbook", status: "not-active", quantity: 14, price: "$800" },
+  { id: 3, productName: "Samsung", status: "not-active", quantity: 10, price: "$400" },
+  { id: 4, productName: "Xiaomi", status: "active", quantity: 14, price: "$400" },
+  { id: 5, productName: "Huawei", status: "active", quantity: 17, price: "$400" },
+  { id: 6, productName: "Nokia", status: "not-active", quantity: 14, price: "$400" },
+  { id: 7, productName: "Lenovo ideapad", status: "active", quantity: 21, price: "$400" },
+  { id: 8, productName: "HP", status: "not-active", quantity: 14, price: "$400" },
+]

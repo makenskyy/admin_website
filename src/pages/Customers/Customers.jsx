@@ -1,5 +1,5 @@
 
-import './customersList.css';
+import './customers.css';
 import React, { useState } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { DeleteOutline } from "@material-ui/icons"
@@ -8,7 +8,7 @@ import { userRows } from '../../data/data';
 import { Link } from 'react-router-dom';
 
 
-export default function CustomersList() {
+export default function Customers() {
   const [data, setData] = useState(userRows);
 
   const handleDelete = (id) => {
@@ -39,9 +39,9 @@ export default function CustomersList() {
         return (
           <>
             <Link to={`/customer/${params.row.id}`} >
-              <button className="customersListEdit">Edit</button>
+              <button className="customersEdit">Edit</button>
             </Link >
-            <DeleteOutline className="customersListDelete" onClick={() => handleDelete(params.row.id)} />
+            <DeleteOutline className="customersDelete" onClick={() => handleDelete(params.row.id)} />
           </>
         )
       }
@@ -49,8 +49,8 @@ export default function CustomersList() {
   ];
 
   return (
-    <div className="customersList">
-      <DataGrid rows={data} columns={columns} pageSize={5} disableSelectionOnClick />
+    <div className="customers">
+      <DataGrid rows={data} columns={columns} pageSize={7} disableSelectionOnClick />
     </div>
   );
 }

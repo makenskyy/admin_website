@@ -2,8 +2,9 @@ import React from 'react';
 import Topbar from './components/topbar/Topbar';
 import Sidebar from './components/sidebar/Sidebar';
 import Dashboard from './pages/Dashboard/Dashboard';
-import CustomersList from './pages/CustomersList/CustomersList';
+import Customers from './pages/Customers/Customers';
 import Orders from './pages/Orders/Orders';
+import Product from './pages/Product/Product'
 
 import Login from './pages/Login/Login';
 import Settings from './pages/Settings/Settings';
@@ -27,11 +28,12 @@ function App() {
             <Dashboard />
           </Route>
           <Route exact path='/dashboard' component={Dashboard} />
-          <Route exact path='/customers' component={CustomersList} />
+          <Route exact path='/customers' component={Customers} />
           <Route exact path='/customer/:id' component={Customer} />
           <Route exact path='/orders/:id' component={Orders} />
           <Route exact path='/settings' component={Settings} />
           <Route exact path='/products' component={Products} />
+          <Route exact path='/product/:id' component={Product} />
         </Switch>
       </div>
     </Router>

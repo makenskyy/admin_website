@@ -1,8 +1,8 @@
-.customersList {
+.customers {
   flex: 4;
 }
 
-.customersListEdit{
+.customersEdit{
     border: none;
     border-radius: 10px;
     padding: 5px 10px;
@@ -12,7 +12,7 @@
     margin-right: 20px;
 }
 
-.customersListDelete{
+.customersDelete{
     color: red;
     cursor: pointer;
 }
