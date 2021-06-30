@@ -39,7 +39,7 @@ export default function Products() {
 
   return (
     <div className="products">
-      <DataGrid rows={data} columns={columns} pageSize={7} disableSelectionOnClick />
+      <DataGrid rows={data} columns={columns} pageSize={6} disableSelectionOnClick />
     </div>
   );
 }

@@ -50,7 +50,7 @@ export default function Customers() {
 
   return (
     <div className="customers">
-      <DataGrid rows={data} columns={columns} pageSize={7} disableSelectionOnClick />
+      <DataGrid rows={data} columns={columns} pageSize={6} disableSelectionOnClick />
     </div>
   );
 }

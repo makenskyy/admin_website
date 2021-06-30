@@ -1,3 +1,32 @@
 .product {
   flex: 4;
+  padding: 20px;
+}
+
+.showTitleTop {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.showBottom {
+  margin-bottom: 20px;
+  margin-top: 10px !important;
+}
+
+.showInfo {
+  display: flex;
+  align-items: center;
+  margin: 10px 5px;
+}
+
+.updateForm {
+  margin-top: 0 !important;
+}
+
+.showTitle {
+  color: rgb(140, 140, 135);
+}
+
+.container {
+  margin-top: 10px !important;
 }
