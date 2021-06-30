@@ -17,3 +17,17 @@
     color: red;
     cursor: pointer;
 }
+
+.createProduct {
+  border: none;
+  width: 90px;
+  padding: 5px;
+  border-radius: 2px;
+  background-color: #00bcd4;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+.title {
+  font-weight: 600;
+}

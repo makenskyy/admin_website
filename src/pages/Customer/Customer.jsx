@@ -1,5 +1,6 @@
-import React, { useParams } from 'react'
+import React from 'react'
 import './customer.css';
+import { useParams } from 'react-router-dom';
 
 import DetailsIcon from '@material-ui/icons/Details';
 import { LocationSearching } from '@material-ui/icons';
@@ -7,7 +8,7 @@ import { LocationSearching } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 
 export const Customer = () => {
-  // const { id } = useParams();
+  const { id } = useParams();
   // console.log(id);
   // чекните, вот эту линию че-то useParams() не работает тут, хотел использовать это для /orders/:id на 48м линии
   return (
@@ -47,7 +48,7 @@ export const Customer = () => {
             </div>
             <div className="showInfo">
               <LocationSearching className="showIcon" />
-              <Link className="ordersLink" to='/orders' >
+              <Link className="ordersLink" to={`/orders/${id}`} >
                 <span className="showInfoText">Orders (click to see)</span>
               </Link>
             </div>

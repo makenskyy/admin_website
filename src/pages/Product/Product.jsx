@@ -32,8 +32,6 @@ const Product = () => {
               <span className="showInfoText">$800</span>
             </div>
 
-
-
           </div>
         </div>
         <div className="update">

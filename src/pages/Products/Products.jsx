@@ -39,6 +39,12 @@ export default function Products() {
 
   return (
     <div className="products">
+      <div className="titleContainer">
+        <h1 className="title">Products</h1>
+        <Link to='/newProduct'>
+          <button className="createProduct">Create</button>
+        </Link>
+      </div>
       <DataGrid rows={data} columns={columns} pageSize={6} disableSelectionOnClick />
     </div>
   );

@@ -15,6 +15,7 @@ import { Customer } from './pages/Customer/Customer';
 
 
 import "./App.css"
+import NewProduct from './pages/NewProduct/NewProduct';
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
           <Route exact path='/settings' component={Settings} />
           <Route exact path='/products' component={Products} />
           <Route exact path='/product/:id' component={Product} />
+          <Route exact path='/newProduct' component={NewProduct} />
         </Switch>
       </div>
     </Router>
