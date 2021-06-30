@@ -1,0 +1,127 @@
+.customer {
+  flex: 4;
+  padding: 20px;
+}
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.addButton {
+  border: none;
+  width: 70px;
+  background-color: #00bcd4;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  color: #FFF;
+  font-size: 15px;
+}
+
+.container {
+  margin-top: 10px;
+  display: flex;
+}
+
+.show {
+  flex: 2;
+  box-shadow: rgb(0 0 0 / 12%) 0px 1px 6px, rgb(0 0 0 / 12%) 0px 1px 4px;
+  padding: 20px;
+  margin-right: 20px;
+}
+
+.update {
+  flex: 3;
+  box-shadow: rgb(0 0 0 / 12%) 0px 1px 6px, rgb(0 0 0 / 12%) 0px 1px 4px;
+  padding: 20px;
+  margin-left: 20px;
+}
+
+.showTitleTop {
+  display: flex;
+  flex-direction: column;
+}
+
+.showUsername {
+  font-weight: 600;
+}
+
+.showPosition {
+  font-weight: 300;
+}
+
+.showText {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgb(175, 170, 170);
+}
+
+.showBottom {
+  margin-top: 20px;  
+}
+
+.showInfo {
+  display: flex;
+  align-items: center;
+  margin: 10px 5px;
+}
+.showIcon {
+  font-size: 17px !important;
+  margin-right: 5px;
+}
+
+.showInfoText {
+  font-size: 15px;
+}
+
+.updateForm {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.updateTitle {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.updateItem {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.updateItem > label{
+  margin-bottom: 5px;
+  font-size: 14px;
+} 
+
+.updateItem > input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid;
+  outline: none;
+}
+.updateRight {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+
+.updateButton {
+  border: none;
+  width: 100px;
+  background-color: #00bcd4;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  color: #FFF;
+  font-size: 15px;
+}
+
+.ordersLink {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}

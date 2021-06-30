@@ -29,6 +29,8 @@
   display: flex;
   align-items: center;
   border-radius: 10px;
+  color: black;
+  text-decoration: none;
 }
 
 .sidebarListItem.active, .sidebarListItem:hover {
@@ -41,4 +43,9 @@
 
 .sidebarIcon {
   margin-right: 20px;  
+
+}
+
+.linkStyle {
+  text-decoration: none;
 }

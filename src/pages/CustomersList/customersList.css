@@ -1,0 +1,23 @@
+.customersList {
+  flex: 4;
+}
+
+.customersListEdit{
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: #3bb077;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.customersListDelete{
+    color: red;
+    cursor: pointer;
+}
+.orderLink {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
