@@ -3,13 +3,13 @@ import './products.css';
 import React, { useState } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { DeleteOutline } from "@material-ui/icons"
-import { productRows } from '../../data/data';
+import { products } from '../../data/data';
 
 import { Link } from 'react-router-dom';
 
 
 export default function Products() {
-  const [data, setData] = useState(productRows);
+  const [data, setData] = useState(products);
 
   const handleDelete = (id) => {
     setData(data.filter(item => item.id !== id));

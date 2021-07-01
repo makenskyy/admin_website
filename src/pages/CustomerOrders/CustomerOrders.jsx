@@ -38,7 +38,7 @@ function CustomerOrders() {
         return (
           <>
             <button className="orderLinkButton" onClick={() => handleRedirectPage(params.row.id)} >
-              order details
+              order summary
             </button>
           </>
         )

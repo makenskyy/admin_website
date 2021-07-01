@@ -15,6 +15,10 @@ const NewProduct = () => {
           <input type="text" placeholder="12" />
         </div>
         <div className="newProductItem">
+          <label className="newProductLabel" >Price</label>
+          <input type="text" placeholder="$400.00" />
+        </div>
+        <div className="newProductItem">
           <label className="newProductLabel" >Active</label>
           <input type="text" placeholder="Yes" />
         </div>

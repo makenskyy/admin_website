@@ -19,9 +19,14 @@ import { Customer } from './pages/Customer/Customer';
 import "./App.css"
 import NewProduct from './pages/NewProduct/NewProduct';
 
+// if store logged in 
+
 function App() {
 
   return (
+    // <>
+    //   <h1>Hello</h1>
+    // </>
     <Router>
       <Topbar />
       <div className="container">
