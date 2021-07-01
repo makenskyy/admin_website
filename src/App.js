@@ -24,30 +24,30 @@ import NewProduct from './pages/NewProduct/NewProduct';
 function App() {
 
   return (
-    // <>
-    //   <h1>Hello</h1>
-    // </>
-    <Router>
-      <Topbar />
-      <div className="container">
-        <Sidebar />
-        <Switch>
-          <Route exact path='/'>
-            <Dashboard />
-          </Route>
-          <Route exact path='/dashboard' component={Dashboard} />
-          <Route exact path='/customers' component={Customers} />
-          <Route exact path='/customer/:id' component={Customer} />
-          <Route exact path='/orders' component={Orders} />
-          <Route exact path='/settings' component={Settings} />
-          <Route exact path='/products' component={Products} />
-          <Route exact path='/product/:id' component={Product} />
-          <Route exact path='/newProduct' component={NewProduct} />
-          <Route exact path='/customer/:id/orders' component={CustomerOrders} />
-          <Route exact path='/orders/:id' component={OrderDetails} />
-        </Switch>
-      </div>
-    </Router>
+    <>
+      <Login />
+    </>
+    // <Router>
+    //   <Topbar />
+    //   <div className="container">
+    //     <Sidebar />
+    //     <Switch>
+    //       <Route exact path='/'>
+    //         <Dashboard />
+    //       </Route>
+    //       <Route exact path='/dashboard' component={Dashboard} />
+    //       <Route exact path='/customers' component={Customers} />
+    //       <Route exact path='/customer/:id' component={Customer} />
+    //       <Route exact path='/orders' component={Orders} />
+    //       <Route exact path='/settings' component={Settings} />
+    //       <Route exact path='/products' component={Products} />
+    //       <Route exact path='/product/:id' component={Product} />
+    //       <Route exact path='/newProduct' component={NewProduct} />
+    //       <Route exact path='/customer/:id/orders' component={CustomerOrders} />
+    //       <Route exact path='/orders/:id' component={OrderDetails} />
+    //     </Switch>
+    //   </div>
+    // </Router>
   );
 }
 
