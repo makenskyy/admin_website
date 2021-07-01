@@ -9,6 +9,8 @@ import Product from './pages/Product/Product'
 import Login from './pages/Login/Login';
 import Settings from './pages/Settings/Settings';
 import Products from './pages/Products/Products';
+import OrderDetails from './pages/OrderDetails/OrderDetails';
+import CustomerOrders from './pages/CustomerOrders/CustomerOrders';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Customer } from './pages/Customer/Customer';
@@ -36,6 +38,8 @@ function App() {
           <Route exact path='/products' component={Products} />
           <Route exact path='/product/:id' component={Product} />
           <Route exact path='/newProduct' component={NewProduct} />
+          <Route exact path='/customer/:id/orders' component={CustomerOrders} />
+          <Route exact path='/orders/:id' component={OrderDetails} />
         </Switch>
       </div>
     </Router>

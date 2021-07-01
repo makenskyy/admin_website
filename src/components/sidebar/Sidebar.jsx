@@ -3,6 +3,9 @@ import './sidebar.css'
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonIcon from '@material-ui/icons/Person';
+import SettingsIcon from '@material-ui/icons/Settings';
+import AllInboxIcon from '@material-ui/icons/AllInbox';
+import StoreIcon from '@material-ui/icons/Store';
 
 import { Link } from 'react-router-dom';
 
@@ -20,7 +23,7 @@ const Sidebar = () => {
             </Link>
             <Link className='linkStyle' to='/products'>
               <li className="sidebarListItem">
-                <PersonIcon className="sidebarIcon" />
+                <StoreIcon className="sidebarIcon" />
                 <p className="sidebarListItemName">Products</p>
               </li>
             </Link>
@@ -30,9 +33,15 @@ const Sidebar = () => {
                 <p className="sidebarListItemName">Customers</p>
               </li>
             </Link>
+            <Link className='linkStyle' to='/orders'>
+              <li className="sidebarListItem">
+                <AllInboxIcon className="sidebarIcon" />
+                <p className="sidebarListItemName">Orders</p>
+              </li>
+            </Link>
             <Link className='linkStyle' to='/settings'>
               <li className="sidebarListItem">
-                <DashboardIcon className="sidebarIcon" />
+                <SettingsIcon className="sidebarIcon" />
                 <p className="sidebarListItemName">Settings</p>
               </li>
             </Link>

@@ -48,7 +48,7 @@ export const Customer = () => {
             </div>
             <div className="showInfo">
               <LocationSearching className="showIcon" />
-              <Link className="ordersLink" to={`/orders/${id}`} >
+              <Link className="ordersLink" to={`customer/${id}/orders`} >
                 <span className="showInfoText">Orders (click to see)</span>
               </Link>
             </div>
