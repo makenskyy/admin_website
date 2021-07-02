@@ -6,27 +6,29 @@ export default function Login() {
 
     <>
       <div className="login">
-        <h1>Signin to admin website</h1>
-        <form className="loginForm">
-          <div
-            className="inputField">
-            <input type="text" required />
-            <span></span>
-            <label>Username</label>
-          </div>
+        <div className="loginContainer">
+          <h1>Signin to admin website</h1>
+          <form className="loginForm">
+            <div
+              className="inputField">
+              <input type="text" required />
+              <span></span>
+              <label>Username</label>
+            </div>
 
-          <div
-            className="inputField">
-            <input type="text" required />
-            <span></span>
-            <label>Password</label>
-          </div>
+            <div
+              className="inputField">
+              <input type="text" required />
+              <span></span>
+              <label>Password</label>
+            </div>
 
-          <div className="buttonParent">
-            <button className="loginButton">Login</button>
-          </div>
+            <div className="buttonParent">
+              <button className="loginButton">Login</button>
+            </div>
 
-        </form>
+          </form>
+        </div>
       </div>
     </>
   )

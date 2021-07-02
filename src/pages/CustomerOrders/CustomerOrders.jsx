@@ -9,7 +9,6 @@ import { customers } from '../../data/data';
 function CustomerOrders() {
 
   const { id } = useParams();
-  // console.log(id);
 
   const orders = customers.filter(customer => customer.id == id).map(customer => customer.orders);
 
@@ -37,7 +36,7 @@ function CustomerOrders() {
       field: 'orders', headerName: "Orders", width: 120, renderCell: (params) => {
         return (
           <>
-            <button className="orderLinkButton" onClick={() => handleRedirectPage(params.row.id)} >
+            <button className="orderLinkButton" onClick={() => handleRedirectPage(params.data.id)} >
               order summary
             </button>
           </>
@@ -48,10 +47,10 @@ function CustomerOrders() {
       field: "action", headerName: "Action", width: 150, renderCell: (params) => {
         return (
           <>
-            <Link to={`/customer/${params.row.id}`} >
-              <button className="customersEdit">Edit</button>
+            <Link to={`/customer/${params.data.id}`} >
+              <button className="customersEdit" >Edit</button>
             </Link >
-            <DeleteOutline className="customersDelete" onClick={() => handleDelete(params.row.id)} />
+            <DeleteOutline className="customersDelete" onClick={() => handleDelete(params.data.id)} />
           </>
         )
       }

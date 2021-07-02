@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { DeleteOutline } from "@material-ui/icons"
 import { products } from '../../data/data';
+import { Redirect } from 'react-router-dom';
 
 import { Link } from 'react-router-dom';
 
@@ -16,7 +17,7 @@ export default function Products() {
   }
 
   const columns = [
-    { field: 'id', headerName: 'ID', width: 90 },
+    { field: 'id', headerName: 'id', width: 90 },
     { field: 'productName', headerName: 'Product Name', width: 180 },
     { field: 'status', headerName: 'Status', width: 180 },
     {
@@ -27,10 +28,10 @@ export default function Products() {
       field: "action", headerName: "Action", width: 150, renderCell: (params) => {
         return (
           <>
-            <Link to={`/product/${params.row.id}`} >
+            <Link to={`/product/${params.data.id}`} >
               <button className="productsEdit">Edit</button>
             </Link >
-            <DeleteOutline className="productsDelete" onClick={() => handleDelete(params.row.id)} />
+            <DeleteOutline className="productsDelete" onClick={() => handleDelete(params.data.id)} />
           </>
         )
       }

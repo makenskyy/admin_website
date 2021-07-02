@@ -36,7 +36,7 @@ export default function Orders() {
       field: 'orders', headerName: "Orders", width: 140, renderCell: (params) => {
         return (
           <>
-            <Link className='orderLink' to={`/orders/${params.row.id}`} >
+            <Link className='orderLink' to={`/orders/${params.data.id}`} >
               <button className="orderLinkButton">order summary</button>
             </Link>
           </>
@@ -47,10 +47,10 @@ export default function Orders() {
       field: "action", headerName: "Action", width: 150, renderCell: (params) => {
         return (
           <>
-            <Link to={`/customer/${params.row.id}`} >
+            <Link to={`/customer/${params.data.id}`} >
               <button className="customersEdit">Edit</button>
             </Link >
-            <DeleteOutline className="customersDelete" onClick={() => handleDelete(params.row.id)} />
+            <DeleteOutline className="customersDelete" onClick={() => handleDelete(params.data.id)} />
           </>
         )
       }
