@@ -1,5 +1,10 @@
+import { customers } from '../data/data';
+import { products } from '../data/data';
+
+console.log(customers);
+
 const defaultState = {
-  isLoggedIn: true,
+  isLoggedIn: false,
   authInfo: {
     username: "",
   },
@@ -14,7 +19,7 @@ const LOGOUT_USER = "LOGOUT_USER";
 export const authReducer = (state = defaultState, action) => {
   switch (action.type) {
     case LOGIN_USER:
-      return { ...state, authInfo: action.payload, isLoggedIn: true };
+      return { authInfo: action.payload, isLoggedIn: true, customers: customers, products: products };
     case LOGOUT_USER:
       return { isLoggedIn: false, authInfo: { username: "" }, customers: [], products: [] }
     default:
