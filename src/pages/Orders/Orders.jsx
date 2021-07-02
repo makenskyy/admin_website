@@ -12,7 +12,6 @@ import { Link } from 'react-router-dom';
 export default function Orders() {
 
   const orderRows = customers.map(customer => customer.orders).flat();
-  console.log(orderRows);
 
   const [data, setData] = useState(orderRows);
 

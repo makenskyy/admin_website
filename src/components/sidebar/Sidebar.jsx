@@ -45,7 +45,7 @@ const Sidebar = () => {
                 <p className="sidebarListItemName">Settings</p>
               </li>
             </Link>
-            <Link className='linkStyle' to='/login'>
+            <Link className='linkStyle' to='/logout'>
               <li className="sidebarListItem">
                 <ExitToAppIcon className="sidebarIcon" />
                 <p className="sidebarListItemName">Logout</p>

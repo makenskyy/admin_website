@@ -1,8 +1,6 @@
 import { customers } from '../data/data';
 import { products } from '../data/data';
 
-console.log(customers);
-
 const defaultState = {
   isLoggedIn: false,
   authInfo: {

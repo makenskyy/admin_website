@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 
 import { loginAction } from '../../store/authReducer';
 
-import { useHistory } from 'react-router';
+import { useHistory, Redirect } from 'react-router';
 
 
 export default function Login() {
@@ -20,7 +20,8 @@ export default function Login() {
   const submit = (e) => {
     e.preventDefault();
     console.log(username);
-    dispatch(loginAction({ username: username }))
+    dispatch(loginAction({ username: username }));
+    // < Redirect to='/dashboard' />
     history.push('/dashboard');
   }
 

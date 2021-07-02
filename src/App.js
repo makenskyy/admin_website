@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Topbar from './components/topbar/Topbar';
 import Sidebar from './components/sidebar/Sidebar';
@@ -18,6 +18,8 @@ import { Customer } from './pages/Customer/Customer';
 
 import { Provider, useSelector } from 'react-redux';
 
+import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
+
 import "./App.css"
 import NewProduct from './pages/NewProduct/NewProduct';
 
@@ -27,8 +29,10 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        {store.getState().authReducer.isLoggedIn ?
-          <>
+        {/* {console.log(store.getState().authReducer.isLoggedIn)} */}
+        {/* {store.getState().authReducer.isLoggedIn ? */}
+        <>
+          <PrivateRoute path='/'>
             <Topbar />
             <div className="container">
               <Sidebar />
@@ -46,21 +50,14 @@ function App() {
                 <Route exact path='/newProduct' component={NewProduct} />
                 <Route exact path='/customer/:id/orders' component={CustomerOrders} />
                 <Route exact path='/orders/:id' component={OrderDetails} />
-                <Route exact path='/login'>
-                  <Redirect to='/dashboard' />
-                </Route>
                 <Route component={NotFound} />
               </Switch>
             </div>
-          </>
-          :
-          <Switch>
-            <Route path='/' >
-              <Login />
-              <Redirect to='/login' />
-            </Route>
-          </Switch>
-        }
+          </PrivateRoute>
+          <Route path='/login' component={Login} />
+        </>
+
+        {/* } */}
       </Router>
     </Provider>
   );
