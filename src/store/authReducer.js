@@ -43,17 +43,8 @@ export const authReducer = (state = defaultState, action) => {
       })
       return { ...state, products: updatedProducts }
     case ORDER_DELETE:
-      const sortedOrders = state.orders.filter(order => order.id !== action.payload.id);
-      const customer = state.customers.filter(customer => customer.id === action.payload.customer_id)[0];
-      const orders_id = customer.orders_id.filter(item => item !== action.payload.id);
-      const updatedCustomer = { ...customer, orders_id: orders_id };
 
-      const updatedCustomers = state.customers.map(customer => {
-        if (customer.id === action.payload.customer_id) {
-          return updatedCustomer;
-        } else return customer;
-      })
-      return { ...state, customers: updatedCustomers, orders: sortedOrders };
+      return { ...state, customers: action.payload.updatedCustomers, orders: action.payload.sortedOrders };
     case CUSTOMER_DELETE:
       return { ...state, customers: action.payload.updatedCustomers, orders: action.payload.updatedOrders };
     case CUSTOMER_UPDATE:

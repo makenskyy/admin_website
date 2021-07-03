@@ -19,7 +19,7 @@ const Product = () => {
   const dispatch = useDispatch();
 
   const currentProduct = useSelector(state => state.authReducer.products).filter(item => item.id === id)[0];
-  // как-то этот мой обджект на нулевой позиции
+  // тут крч после филтера array там нужно было выбрать [0] индекс, потому что там было тот обджект который мне нужен был , а на первом индексе какой-то прототиппа сондай болды
 
 
   const [productName, setProductName] = useState("");

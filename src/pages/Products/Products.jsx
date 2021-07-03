@@ -17,8 +17,6 @@ export default function Products() {
 
   const [data, setData] = useState(products);
 
-
-
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {

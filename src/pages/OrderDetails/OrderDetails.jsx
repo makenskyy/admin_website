@@ -7,10 +7,6 @@ import { customers, orders } from '../../data/data';
 
 import { useHistory } from 'react-router';
 
-import DetailsIcon from '@material-ui/icons/Details';
-import { LocationSearching } from '@material-ui/icons';
-
-import { Link } from 'react-router-dom';
 
 
 const OrderDetails = () => {
@@ -22,16 +18,13 @@ const OrderDetails = () => {
 
   const id = useParamsInt();
 
-
-  const [data, setData] = useState({});
-  let info = {};
-
   const history = useHistory();
 
   const order = orders.filter(item => item.id === id)[0];
-  console.log(order);
+  // тут крч после филтера array там нужно было выбрать [0] индекс, потому что там было тот обджект который мне нужен был , а на первом индексе какой-то прототиппа сондай болды
   const customer_id = order.customer_id;
   const customer = customers.filter(customer => customer.id === customer_id)[0];
+  // тут тоже так же
 
   return (
     <div className="order">
@@ -91,7 +84,7 @@ const OrderDetails = () => {
             </div>
           </div>
           <div className="backHistory" >
-            <button className="backHistoryButton" onClick={() => history.push('/dashboard')}>OK</button>
+            <button className="backHistoryButton" onClick={() => history.push('/orders')}>OK</button>
           </div>
         </div>
       </div>

@@ -16,12 +16,10 @@ function CustomerOrders() {
   const id = useParamsInt();
 
   const customer = useSelector(state => state.authReducer.customers).filter(customer => customer.id === id)[0];
+  // тут крч после филтера array там нужно было выбрать [0] индекс, потому что там было тот обджект который мне нужен был , а на первом индексе какой-то прототиппа сондай болды
 
   const orders_id = customer.orders_id;
-
   const orders = useSelector(state => state.authReducer.orders).filter(order => orders_id.includes(order.id));
-
-
 
 
   const [data, setData] = useState(orders);

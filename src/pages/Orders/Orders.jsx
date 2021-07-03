@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux';
 export default function Orders() {
 
   const orders = useSelector(state => state.authReducer.orders);
+  const customers = useSelector(state => state.authReducer.customers);
 
   const [data, setData] = useState(orders);
   const dispatch = useDispatch();
@@ -21,13 +22,24 @@ export default function Orders() {
 
   const handleDelete = (id, customer_id) => {
     setData(data.filter(item => item.id !== id));
-    dispatch(orderDeleteAction({ id, customer_id }));
+
+    const sortedOrders = orders.filter(order => order.id !== id);
+    const customer = customers.filter(customer => customer.id === customer_id)[0];
+    const orders_id = customer.orders_id.filter(item => item !== id);
+    const updatedCustomer = { ...customer, orders_id: orders_id };
+    const updatedCustomers = customers.map(customer => {
+      if (customer.id === customer_id) {
+        return updatedCustomer;
+      } else return customer;
+    })
+
+
+    dispatch(orderDeleteAction({ sortedOrders, updatedCustomers }));
   }
 
   const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
     { field: 'date', headerName: 'Date', width: 160 },
-    // { field: 'status', headerName: 'Status', width: 90 },
     {
       field: 'total', headerName: 'Total sum', width: 160,
     },

@@ -1,15 +1,12 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux';
 import "./newProduct.css";
 
 import { useDispatch } from 'react-redux';
-import { products } from '../../data/data';
 import { createProductAction } from '../../store/authReducer';
 import { useHistory } from 'react-router';
 
 const NewProduct = () => {
 
-  const productsSize = useSelector(state => state.authReducer.products.length);
   const dispatch = useDispatch();
 
   const [productName, setProductName] = useState("");

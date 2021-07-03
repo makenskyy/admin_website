@@ -20,7 +20,6 @@ export const Customer = () => {
 
   const customer = useSelector(state => state.authReducer.customers).filter(customer => customer.id === id)[0];
 
-
   const [username, setUsername] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
