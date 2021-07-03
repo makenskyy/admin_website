@@ -6,10 +6,19 @@ import PersonIcon from '@material-ui/icons/Person';
 import SettingsIcon from '@material-ui/icons/Settings';
 import AllInboxIcon from '@material-ui/icons/AllInbox';
 import StoreIcon from '@material-ui/icons/Store';
+import { logoutAction } from '../../store/authReducer';
+import { useDispatch } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
+
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(logoutAction());
+  }
+
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
@@ -45,7 +54,7 @@ const Sidebar = () => {
                 <p className="sidebarListItemName">Settings</p>
               </li>
             </Link>
-            <Link className='linkStyle' to='/logout'>
+            <Link className='linkStyle' to='/logout' onClick={logout}>
               <li className="sidebarListItem">
                 <ExitToAppIcon className="sidebarIcon" />
                 <p className="sidebarListItemName">Logout</p>

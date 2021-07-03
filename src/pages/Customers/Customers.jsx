@@ -6,15 +6,33 @@ import { DeleteOutline } from "@material-ui/icons"
 import { userRows } from '../../data/data';
 
 import { Link } from 'react-router-dom';
-import { customers } from '../../data/data';
+
+import { useSelector, useDispatch } from 'react-redux';
+
+import { deleteCustomerAction } from '../../store/authReducer';
 
 export default function Customers() {
+
+
+  const dispatch = useDispatch();
+  const customers = useSelector(state => state.authReducer.customers);
+  const orders = useSelector(state => state.authReducer.orders);
 
   const [data, setData] = useState(customers);
 
   const handleDelete = (id) => {
     setData(data.filter(item => item.id !== id));
+
+    const orders_id = customers.filter(customer => customer.id === id)[0].orders_id;
+    const updatedOrders = orders.filter(order => !orders_id.includes(order.id));
+    const updatedCustomers = customers.filter(customer => customer.id !== id);
+
+    dispatch(deleteCustomerAction({ updatedCustomers, updatedOrders }));
   }
+
+
+
+
 
 
   const columns = [

@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { useState } from 'react';
 import './orderDetails.css';
 
-import { customers } from '../../data/data';
+import { customers, orders } from '../../data/data';
 
 import { useHistory } from 'react-router';
 
@@ -15,26 +15,23 @@ import { Link } from 'react-router-dom';
 
 const OrderDetails = () => {
 
-  const { id } = useParams();
+  const useParamsInt = () => {
+    const { id } = useParams();
+    return parseInt(id);
+  }
+
+  const id = useParamsInt();
+
+
   const [data, setData] = useState({});
   let info = {};
 
   const history = useHistory();
 
-
-  customers.map(customer => {
-    const { orders } = customer;
-    for (let i = 0; i < orders.length; i++) {
-      if (orders[i].id == id) {
-        const { firstName, lastName } = customer;
-        const { productName, shippingAddress, delivered, paymentMethod, total, date } = orders[i];
-        info = { firstName, lastName, productName, shippingAddress, delivered, paymentMethod, total, date };
-        // setData({ productName, shippingAddress, delivered, paymentMethod, total, firstName, lastName });
-        // из за этой линий у меня не работает код
-        // я тут хотел запихнуть {productName, shippingAddress, delivered, paymentMethod, total, firstName, lastName} на data
-      }
-    }
-  })
+  const order = orders.filter(item => item.id === id)[0];
+  console.log(order);
+  const customer_id = order.customer_id;
+  const customer = customers.filter(customer => customer.id === customer_id)[0];
 
   return (
     <div className="order">
@@ -47,11 +44,11 @@ const OrderDetails = () => {
           </div>
           <div className="summaryItem">
             <div className="summaryItemLeft">Order created</div>
-            <div className="summaryItemRight">{info.date}</div>
+            <div className="summaryItemRight">{order.date}</div>
           </div>
           <div className="summaryItem">
             <div className="summaryItemLeft">Item price</div>
-            <div className="summaryItemRight">{info.total}</div>
+            <div className="summaryItemRight">{order.total}</div>
           </div>
           <div className="summaryItem">
             <div className="summaryItemLeft">Shipping price</div>
@@ -67,7 +64,7 @@ const OrderDetails = () => {
           </div>
           <div className="summaryItem total">
             <div className="summaryItemLeftTotal">Total</div>
-            <div className="summaryItemRight">$197.70</div>
+            <div className="summaryItemRight">${(order.total + 1 + 2 - 5.7).toFixed(2)}</div>
           </div>
 
         </div>
@@ -78,19 +75,19 @@ const OrderDetails = () => {
             </div>
             <div className="orderDetailsItem">
               <div className="orderDetailsItemLeft">Customer</div>
-              <div className="orderDetailsItemRight">{info.firstName} {info.lastName}</div>
+              <div className="orderDetailsItemRight">{customer.firstName} {customer.lastName}</div>
             </div>
             <div className="orderDetailsItem">
               <div className="orderDetailsItemLeft">Product name</div>
-              <div className="orderDetailsItemRight">{info.productName}</div>
+              <div className="orderDetailsItemRight">{order.productName}</div>
             </div>
             <div className="orderDetailsItem">
               <div className="orderDetailsItemLeft">Shipping address</div>
-              <div className="orderDetailsItemRight">{info.shippingAddress}</div>
+              <div className="orderDetailsItemRight">{order.shippingAddress}</div>
             </div>
             <div className="orderDetailsItem">
               <div className="orderDetailsItemLeft">Payment method</div>
-              <div className="orderDetailsItemRight">{info.paymentMethod}</div>
+              <div className="orderDetailsItemRight">{order.paymentMethod}</div>
             </div>
           </div>
           <div className="backHistory" >

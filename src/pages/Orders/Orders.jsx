@@ -3,22 +3,25 @@ import './orders.css';
 import React, { useState } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { DeleteOutline } from "@material-ui/icons"
-import { customers } from '../../data/data';
 
 import { Link } from 'react-router-dom';
 
+import { useDispatch } from 'react-redux';
+import { orderDeleteAction } from '../../store/authReducer';
+import { useSelector } from 'react-redux';
 
 
 export default function Orders() {
 
-  const orderRows = customers.map(customer => customer.orders).flat();
+  const orders = useSelector(state => state.authReducer.orders);
 
-  const [data, setData] = useState(orderRows);
+  const [data, setData] = useState(orders);
+  const dispatch = useDispatch();
 
 
-
-  const handleDelete = (id) => {
+  const handleDelete = (id, customer_id) => {
     setData(data.filter(item => item.id !== id));
+    dispatch(orderDeleteAction({ id, customer_id }));
   }
 
   const columns = [
@@ -43,13 +46,17 @@ export default function Orders() {
       }
     },
     {
-      field: "action", headerName: "Action", width: 150, renderCell: (params) => {
+      field: "action", headerName: "Action", width: 90, renderCell: (params) => {
         return (
           <>
-            <Link to={`/customer/${params.data.id}`} >
+            {/* <Link to={`/customer/${params.data.id}`} >
               <button className="customersEdit">Edit</button>
-            </Link >
-            <DeleteOutline className="customersDelete" onClick={() => handleDelete(params.data.id)} />
+            </Link > */
+
+              /* Крч сначала я просто-так написал, но если-что закомментил может понадобится, но по-моему это будет нелогично добавить edit button для orders для админа так как этот функционал вообще не нужен */
+
+            }
+            <DeleteOutline className="customersDelete" onClick={() => handleDelete(params.data.id, params.data.customer_id)} />
           </>
         )
       }

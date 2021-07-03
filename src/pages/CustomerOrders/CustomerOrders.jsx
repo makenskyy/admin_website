@@ -5,14 +5,26 @@ import { DataGrid } from '@material-ui/data-grid';
 import { DeleteOutline } from "@material-ui/icons"
 import { customers } from '../../data/data';
 
+import { useSelector } from 'react-redux';
 
 function CustomerOrders() {
 
-  const { id } = useParams();
+  const useParamsInt = () => {
+    const { id } = useParams();
+    return parseInt(id);
+  }
+  const id = useParamsInt();
 
-  const orders = customers.filter(customer => customer.id == id).map(customer => customer.orders);
+  const customer = useSelector(state => state.authReducer.customers).filter(customer => customer.id === id)[0];
 
-  const [data, setData] = useState(orders[0]);
+  const orders_id = customer.orders_id;
+
+  const orders = useSelector(state => state.authReducer.orders).filter(order => orders_id.includes(order.id));
+
+
+
+
+  const [data, setData] = useState(orders);
   const history = useHistory();
 
   const handleDelete = (id) => {
@@ -59,6 +71,7 @@ function CustomerOrders() {
 
   return (
     <div className="customers">
+      <h1>{customer.firstName} {customer.lastName}'s orders</h1>
       <DataGrid rows={data} columns={columns} pageSize={6} disableSelectionOnClick />
     </div>
   );

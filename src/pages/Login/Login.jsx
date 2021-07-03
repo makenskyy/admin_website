@@ -19,7 +19,6 @@ export default function Login() {
 
   const submit = (e) => {
     e.preventDefault();
-    console.log(username);
     dispatch(loginAction({ username: username }));
     // < Redirect to='/dashboard' />
     history.push('/dashboard');
