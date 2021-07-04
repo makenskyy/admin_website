@@ -25,12 +25,10 @@ import NewProduct from './pages/NewProduct/NewProduct';
 
 import { store } from './store/index';
 
-function App() {
+const App: React.FunctionComponent = () => {
   return (
     <Provider store={store}>
       <Router>
-        {/* {console.log(store.getState().authReducer.isLoggedIn)} */}
-        {/* {store.getState().authReducer.isLoggedIn ? */}
         <>
           <PrivateRoute path='/'>
             <Topbar />
@@ -56,8 +54,6 @@ function App() {
           </PrivateRoute>
           <Route path='/login' component={Login} />
         </>
-
-        {/* } */}
       </Router>
     </Provider>
   );

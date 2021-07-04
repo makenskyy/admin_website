@@ -5,33 +5,33 @@ import { useParams } from 'react-router-dom';
 import DetailsIcon from '@material-ui/icons/Details';
 import { LocationSearching } from '@material-ui/icons';
 import { updateCustomerAction } from '../../store/authReducer';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
+import { useTypedSelector } from '../../store/useTypesSelector';
 
-export const Customer = () => {
+export const Customer: React.FC = () => {
   const useParamsInt = () => {
-    const { id } = useParams();
+    const { id } = useParams<ParamTypes>();
     return parseInt(id);
   }
+  const id = useParamsInt();
 
   const history = useHistory();
-  const id = useParamsInt();
   const dispatch = useDispatch();
 
-  const customer = useSelector(state => state.authReducer.customers).filter(customer => customer.id === id)[0];
+  const customer = useTypedSelector(state => state.authReducer.customers).filter(customer => customer.id === id)[0];
 
   const [username, setUsername] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-
-
-  const submit = (e) => {
+  const submit = (e: React.FormEvent) => {
     e.preventDefault();
     dispatch(updateCustomerAction({ username, firstName, lastName, email, phoneNumber, id }));
     history.push('/customers');
   }
+
 
   return (
     <div className="customer">
@@ -40,21 +40,20 @@ export const Customer = () => {
       </div>
       <div className="container">
         <div className="show">
-
           <div className="showTitleTop">
             <div className="showUsername">{customer.firstName} {customer.lastName}</div>
             <div className="showPosition">Costumer</div>
           </div>
-
           <div className="showBottom">
             <span className="showTitle">Account details</span>
             <div className="showInfo">
               <DetailsIcon className="showIcon" />
               <span className="showInfoText">{customer.username}</span>
             </div>
+
             <div className="showInfo">
               <DetailsIcon className="showIcon" />
-              <span className="showInfoText">{customer.email}]</span>
+              <span className="showInfoText">{customer.email}</span>
             </div>
             <div className="showInfo">
               <LocationSearching className="showIcon" />
@@ -66,6 +65,8 @@ export const Customer = () => {
                 <span className="showInfoText">Orders (click to see)</span>
               </Link>
             </div>
+
+
           </div>
         </div>
         <div className="update">
@@ -131,4 +132,13 @@ export const Customer = () => {
       </div>
     </div>
   )
+}
+
+interface ParamTypes {
+  id: string,
+  username: string,
+  firstName: string,
+  lastName: string,
+  phoneNumber: string,
+  email: string
 }

@@ -3,7 +3,7 @@ import './dashboard.css'
 
 import FeaturedInfo from '../../components/featuredInfo/FeaturedInfo';
 
-const Dashboard = () => {
+const Dashboard: React.FunctionComponent = () => {
   return (
     <>
       <div className="dashboard">

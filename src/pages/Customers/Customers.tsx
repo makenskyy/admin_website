@@ -2,28 +2,25 @@
 import './customers.css';
 import React, { useState } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
-import { DeleteOutline } from "@material-ui/icons"
-import { userRows } from '../../data/data';
-
+import { DeleteOutline } from "@material-ui/icons";
 import { Link } from 'react-router-dom';
-
-import { useSelector, useDispatch } from 'react-redux';
-
+import { useDispatch } from 'react-redux';
 import { deleteCustomerAction } from '../../store/authReducer';
+import { useTypedSelector } from '../../store/useTypesSelector';
 
-export default function Customers() {
+const Customers: React.FunctionComponent = () => {
 
   const dispatch = useDispatch();
 
 
-  const customers = useSelector(state => state.authReducer.customers);
-  const orders = useSelector(state => state.authReducer.orders);
+  const customers = useTypedSelector(state => state.authReducer.customers);
+  const orders = useTypedSelector(state => state.authReducer.orders);
 
-  const [data, setData] = useState(customers);
+  const [data, setData] = useState<any>(customers);
 
-  const handleDelete = (id) => {
+  const handleDelete = (id: number) => {
 
-    setData(data.filter(item => item.id !== id));
+    setData(data.filter((item: any) => item.id !== id));
     const orders_id = customers.filter(customer => customer.id === id)[0].orders_id;
     const updatedOrders = orders.filter(order => !orders_id.includes(order.id));
     const updatedCustomers = customers.filter(customer => customer.id !== id);
@@ -38,7 +35,7 @@ export default function Customers() {
     { field: 'lastName', headerName: 'Last name', width: 140 },
     { field: 'email', headerName: 'Email', width: 180 },
     {
-      field: 'orders', headerName: "Orders", width: 140, renderCell: (params) => {
+      field: 'orders', headerName: "Orders", width: 140, renderCell: (params: any) => {
         return (
           <>
             <Link className='orderLink' to={`/customer/${params.data.id}/orders`} >
@@ -49,7 +46,7 @@ export default function Customers() {
       }
     },
     {
-      field: "action", headerName: "Action", width: 150, renderCell: (params) => {
+      field: "action", headerName: "Action", width: 150, renderCell: (params: any) => {
         return (
           <>
             <Link to={`/customer/${params.data.id}`} >
@@ -71,3 +68,5 @@ export default function Customers() {
 
 
 
+
+export default Customers;

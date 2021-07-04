@@ -9,14 +9,15 @@ import { useHistory } from 'react-router';
 
 
 
-const OrderDetails = () => {
+export const OrderDetails: React.FC = () => {
 
   const useParamsInt = () => {
-    const { id } = useParams();
+    const { id } = useParams<ParamTypes>();
     return parseInt(id);
   }
-
   const id = useParamsInt();
+
+
 
   const history = useHistory();
 
@@ -90,6 +91,11 @@ const OrderDetails = () => {
       </div>
     </div>
   )
+}
+
+
+interface ParamTypes {
+  id: string
 }
 
 export default OrderDetails;

@@ -17,8 +17,8 @@ export default function Login() {
   const history = useHistory();
 
 
-  const submit = (e) => {
-    e.preventDefault();
+  const submit = (event: React.FormEvent) => {
+    event.preventDefault();
     dispatch(loginAction({ username: username }));
     // < Redirect to='/dashboard' />
     history.push('/dashboard');

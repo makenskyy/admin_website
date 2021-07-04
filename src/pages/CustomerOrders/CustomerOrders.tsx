@@ -6,30 +6,31 @@ import { DeleteOutline } from "@material-ui/icons"
 import { customers } from '../../data/data';
 
 import { useSelector } from 'react-redux';
+import { useTypedSelector } from '../../store/useTypesSelector';
 
 function CustomerOrders() {
 
   const useParamsInt = () => {
-    const { id } = useParams();
+    const { id } = useParams<ParamTypes>();
     return parseInt(id);
   }
   const id = useParamsInt();
 
-  const customer = useSelector(state => state.authReducer.customers).filter(customer => customer.id === id)[0];
+  const customer = useTypedSelector(state => state.authReducer.customers).filter(customer => customer.id === id)[0];
   // тут крч после филтера array там нужно было выбрать [0] индекс, потому что там было тот обджект который мне нужен был , а на первом индексе какой-то прототиппа сондай болды
 
   const orders_id = customer.orders_id;
-  const orders = useSelector(state => state.authReducer.orders).filter(order => orders_id.includes(order.id));
+  const orders = useTypedSelector(state => state.authReducer.orders).filter(order => orders_id.includes(order.id));
 
 
   const [data, setData] = useState(orders);
   const history = useHistory();
 
-  const handleDelete = (id) => {
+  const handleDelete = (id: number) => {
     setData(data.filter(item => item.id !== id));
   }
 
-  const handleRedirectPage = (id) => {
+  const handleRedirectPage = (id: number) => {
     history.push(`/orders/${id}`)
   }
 
@@ -43,7 +44,7 @@ function CustomerOrders() {
     { field: "paymentMethod", headerName: "Payment Method", width: 140 },
     { field: "shippingAddress", headerName: "Shipping address", width: 140 },
     {
-      field: 'orders', headerName: "Orders", width: 120, renderCell: (params) => {
+      field: 'orders', headerName: "Orders", width: 120, renderCell: (params: any) => {
         return (
           <>
             <button className="orderLinkButton" onClick={() => handleRedirectPage(params.data.id)} >
@@ -54,7 +55,7 @@ function CustomerOrders() {
       }
     },
     {
-      field: "action", headerName: "Action", width: 150, renderCell: (params) => {
+      field: "action", headerName: "Action", width: 150, renderCell: (params: any) => {
         return (
           <>
             <Link to={`/customer/${params.data.id}`} >
@@ -75,8 +76,9 @@ function CustomerOrders() {
   );
 }
 
-
-
-
-
 export default CustomerOrders;
+
+
+interface ParamTypes {
+  id: string
+}

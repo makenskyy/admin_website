@@ -2,7 +2,22 @@ import { customers } from '../data/data';
 import { products } from '../data/data';
 import { orders } from '../data/data';
 
-const defaultState = {
+interface typeState {
+  isLoggedIn: boolean,
+  authInfo: {
+    username: string
+  },
+  customers: any[],
+  products: any[],
+  orders: any[]
+}
+
+interface actionState {
+  type: string,
+  payload?: any;
+}
+
+const defaultState: typeState = {
   isLoggedIn: false,
   authInfo: {
     username: "",
@@ -22,12 +37,12 @@ const CUSTOMER_DELETE = "CUSTOMER_DELETE";
 const CUSTOMER_UPDATE = "CUSTOMER_UPDATE";
 
 
-export const authReducer = (state = defaultState, action) => {
+export const authReducer = (state = defaultState, action: actionState): typeState => {
   switch (action.type) {
     case LOGIN_USER:
       return { authInfo: action.payload, isLoggedIn: true, customers: customers, products: products, orders: orders };
     case LOGOUT_USER:
-      return { isLoggedIn: false, authInfo: { username: "" }, customers: [], products: [] };
+      return { isLoggedIn: false, authInfo: { username: "" }, customers: [], products: [], orders: [] };
     case PRODUCT_CREATE:
       return { ...state, products: [...state.products, action.payload] }
     case PRODUCT_DELETE:
@@ -59,7 +74,7 @@ export const authReducer = (state = defaultState, action) => {
   }
 }
 
-export const loginAction = (payload) => {
+export const loginAction = (payload: any) => {
   return { type: LOGIN_USER, payload };
 }
 
@@ -67,27 +82,27 @@ export const logoutAction = () => {
   return { type: LOGOUT_USER };
 }
 
-export const createProductAction = (payload) => {
+export const createProductAction = (payload: any) => {
   return { type: PRODUCT_CREATE, payload };
 }
 
-export const deleteProductAction = (payload) => {
+export const deleteProductAction = (payload: any) => {
   return { type: PRODUCT_DELETE, payload };
 }
 
 
-export const updateProductAction = (payload) => {
+export const updateProductAction = (payload: any) => {
   return { type: PRODUCT_UPDATE, payload };
 }
 
-export const orderDeleteAction = (payload) => {
+export const orderDeleteAction = (payload: any) => {
   return { type: ORDER_DELETE, payload }
 };
 
-export const deleteCustomerAction = (payload) => {
+export const deleteCustomerAction = (payload: any) => {
   return { type: CUSTOMER_DELETE, payload };
 }
 
-export const updateCustomerAction = (payload) => {
+export const updateCustomerAction = (payload: any) => {
   return { type: CUSTOMER_UPDATE, payload };
 }

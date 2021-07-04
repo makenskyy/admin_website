@@ -8,24 +8,25 @@ import { Link } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 import { orderDeleteAction } from '../../store/authReducer';
-import { useSelector } from 'react-redux';
+import { useTypedSelector } from '../../store/useTypesSelector';
 
 
-export default function Orders() {
 
-  const orders = useSelector(state => state.authReducer.orders);
-  const customers = useSelector(state => state.authReducer.customers);
+const Orders = () => {
+
+  const orders = useTypedSelector(state => state.authReducer.orders);
+  const customers = useTypedSelector(state => state.authReducer.customers);
 
   const [data, setData] = useState(orders);
   const dispatch = useDispatch();
 
 
-  const handleDelete = (id, customer_id) => {
+  const handleDelete = (id: number, customer_id: number) => {
     setData(data.filter(item => item.id !== id));
 
     const sortedOrders = orders.filter(order => order.id !== id);
     const customer = customers.filter(customer => customer.id === customer_id)[0];
-    const orders_id = customer.orders_id.filter(item => item !== id);
+    const orders_id = customer.orders_id.filter((item_id: number) => item_id !== id);
     const updatedCustomer = { ...customer, orders_id: orders_id };
     const updatedCustomers = customers.map(customer => {
       if (customer.id === customer_id) {
@@ -47,7 +48,7 @@ export default function Orders() {
     { field: "paymentMethod", headerName: "Payment method", width: 140 },
     { field: "shippingAddress", headerName: "Shipping address", width: 140 },
     {
-      field: 'orders', headerName: "Orders", width: 140, renderCell: (params) => {
+      field: 'orders', headerName: "Orders", width: 140, renderCell: (params: any) => {
         return (
           <>
             <Link className='orderLink' to={`/orders/${params.data.id}`} >
@@ -58,7 +59,7 @@ export default function Orders() {
       }
     },
     {
-      field: "action", headerName: "Action", width: 90, renderCell: (params) => {
+      field: "action", headerName: "Action", width: 90, renderCell: (params: any) => {
         return (
           <>
             {/* <Link to={`/customer/${params.data.id}`} >
@@ -83,3 +84,5 @@ export default function Orders() {
 }
 
 
+
+export default Orders;
