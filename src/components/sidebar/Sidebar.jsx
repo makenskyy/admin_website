@@ -22,6 +22,9 @@ const Sidebar = () => {
   }
 
   const isToggledMenuButton = useTypedSelector(state => state.authReducer.isToggledMenuButton);
+  const toggleMenuButton = () => {
+    dispatch(toggleMenuButtonAction(!isToggledMenuButton));
+  }
   console.log("isToggledMenuButton is " + isToggledMenuButton);
 
   return (
@@ -31,37 +34,37 @@ const Sidebar = () => {
           <div className="sidebarWrapper">
             <div className="sidebarMenu">
               <ul className="sidebarList">
-                <Link className='linkStyle' to='/dashboard' >
+                <Link className='linkStyle' to='/dashboard' onClick={() => toggleMenuButton()}>
                   <li className="sidebarListItem">
                     <DashboardIcon className="sidebarIcon" />
                     <p className="sidebarListItemName">Dashboard</p>
                   </li>
                 </Link>
-                <Link className='linkStyle' to='/products' >
+                <Link className='linkStyle' to='/products' onClick={() => toggleMenuButton()}>
                   <li className="sidebarListItem">
                     <StoreIcon className="sidebarIcon" />
                     <p className="sidebarListItemName">Products</p>
                   </li>
                 </Link>
-                <Link className='linkStyle' to='/customers' >
+                <Link className='linkStyle' to='/customers' onClick={() => toggleMenuButton()}>
                   <li className="sidebarListItem">
                     <PersonIcon className="sidebarIcon" />
                     <p className="sidebarListItemName">Customers</p>
                   </li>
                 </Link>
-                <Link className='linkStyle' to='/orders' >
+                <Link className='linkStyle' to='/orders' onClick={() => toggleMenuButton()}>
                   <li className="sidebarListItem">
                     <AllInboxIcon className="sidebarIcon" />
                     <p className="sidebarListItemName">Orders</p>
                   </li>
                 </Link>
-                <Link className='linkStyle' to='/settings'>
+                <Link className='linkStyle' to='/settings' onClick={() => toggleMenuButton()}>
                   <li className="sidebarListItem">
                     <SettingsIcon className="sidebarIcon" />
                     <p className="sidebarListItemName">Settings</p>
                   </li>
                 </Link>
-                <Link className='linkStyle' to='/logout' onClick={logout}>
+                <Link className='linkStyle' to='/logout' onClick={logout} onClick={() => toggleMenuButton()}>
                   <li className="sidebarListItem">
                     <ExitToAppIcon className="sidebarIcon" />
                     <p className="sidebarListItemName">Logout</p>
