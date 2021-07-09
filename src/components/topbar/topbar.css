@@ -23,3 +23,13 @@
   font-size: 22px;
   font-weight: 800;
 }
+
+.topbarMenuIcon { 
+  display: block !important;
+  color: white;
+  cursor: pointer;
+  width: 35px !important;
+  height: 35px !important;
+  position: relative;
+  right: 10px;
+}

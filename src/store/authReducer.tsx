@@ -3,6 +3,7 @@ import { products } from '../data/data';
 import { orders } from '../data/data';
 
 interface typeState {
+  isToggledMenuButton: boolean,
   isLoggedIn: boolean,
   authInfo: {
     username: string
@@ -18,13 +19,14 @@ interface actionState {
 }
 
 const defaultState: typeState = {
-  isLoggedIn: false,
+  isToggledMenuButton: true,
+  isLoggedIn: true,
   authInfo: {
-    username: "",
+    username: "myrza",
   },
-  customers: [],
-  products: [],
-  orders: [],
+  customers: customers,
+  products: products,
+  orders: orders,
 }
 
 const LOGIN_USER = "LOGIN_USER";
@@ -35,14 +37,14 @@ const PRODUCT_UPDATE = "PRODUCT_UPDATE";
 const ORDER_DELETE = "ORDER_DELETE";
 const CUSTOMER_DELETE = "CUSTOMER_DELETE";
 const CUSTOMER_UPDATE = "CUSTOMER_UPDATE";
-
+const TOGGLE_MENU_BUTTON = "TOGGLE_MENU_BUTTON";
 
 export const authReducer = (state = defaultState, action: actionState): typeState => {
   switch (action.type) {
     case LOGIN_USER:
-      return { authInfo: action.payload, isLoggedIn: true, customers: customers, products: products, orders: orders };
+      return { authInfo: action.payload, isLoggedIn: true, customers: customers, products: products, orders: orders, isToggledMenuButton: true };
     case LOGOUT_USER:
-      return { isLoggedIn: false, authInfo: { username: "" }, customers: [], products: [], orders: [] };
+      return { isLoggedIn: false, authInfo: { username: "" }, customers: [], products: [], orders: [], isToggledMenuButton: true };
     case PRODUCT_CREATE:
       return { ...state, products: [...state.products, action.payload] }
     case PRODUCT_DELETE:
@@ -69,6 +71,8 @@ export const authReducer = (state = defaultState, action: actionState): typeStat
         } else return customer;
       })
       return { ...state, customers: newUpdatedCustomers };
+    case TOGGLE_MENU_BUTTON:
+      return { ...state, isToggledMenuButton: action.payload };
     default:
       return state;
   }
@@ -105,4 +109,8 @@ export const deleteCustomerAction = (payload: any) => {
 
 export const updateCustomerAction = (payload: any) => {
   return { type: CUSTOMER_UPDATE, payload };
+}
+
+export const toggleMenuButtonAction = (payload: boolean) => {
+  return { type: TOGGLE_MENU_BUTTON, payload };
 }

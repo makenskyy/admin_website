@@ -19,8 +19,8 @@
 
 .loginContainer h1 {
   text-align: center;
-  padding:  20px 0;
-  border-bottom: 1px solid  rgb(175, 170, 170);
+  padding: 20px 0;
+  border-bottom: 1px solid rgb(175, 170, 170);
 }
 
 .loginContainer .loginForm {
@@ -66,14 +66,14 @@
   transition: .3s;
 }
 
-.inputField input:focus ~ label, 
-.inputField input:valid ~ label {
+.inputField input:focus~label,
+.inputField input:valid~label {
   top: -5px;
   color: #00bcd4;
 }
 
-.inputField input:focus ~ span::before, 
-.inputField input:valid ~ span::before {
+.inputField input:focus~span::before,
+.inputField input:valid~span::before {
   width: 100%;
 }
 
@@ -91,7 +91,7 @@
   outline: none;
   box-shadow: rgb(0 0 0 / 12%) 0px 1px 6px, rgb(0 0 0 / 12%) 0px 1px 4px;
   margin-bottom: 30px;
-  
+
 }
 
 .loginButton:hover {
@@ -102,4 +102,17 @@
 .buttonParent {
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 480px) {
+  .loginContainer {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .loginContainer {
+    height: 65%;
+    width: 80%;
+  }
 }

@@ -1,6 +1,7 @@
 .product {
   flex: 4;
   padding: 20px;
+  height: calc(100vh - 80px);
 }
 
 .showTitleTop {
