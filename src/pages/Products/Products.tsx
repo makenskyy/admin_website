@@ -60,7 +60,7 @@ export default function Products() {
           <button className="createProduct">Create</button>
         </Link>
       </div>
-      <DataGrid rows={data} columns={columns} pageSize={6} disableSelectionOnClick />
+      <DataGrid rows={data} columns={columns} pageSize={6} disableSelectionOnClick scrollbarSize={15} />
     </div>
   );
 }
