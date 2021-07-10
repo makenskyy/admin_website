@@ -82,3 +82,16 @@
   font-weight: 400;
   font-size: 25px;
 }
+
+@media screen and (max-width: 780px) {
+  .itemContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .left_container {
+    width: 100%;
+  }
+  .right_container {
+    width: 100%;
+  }
+}

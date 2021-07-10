@@ -32,3 +32,8 @@
   color: white;
   cursor: pointer;
 }
+
+element.style {
+    width: 335px;
+    height: 300px;
+}

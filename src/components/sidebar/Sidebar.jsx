@@ -23,9 +23,11 @@ const Sidebar = () => {
 
   const isToggledMenuButton = useTypedSelector(state => state.authReducer.isToggledMenuButton);
   const toggleMenuButton = () => {
-    dispatch(toggleMenuButtonAction(!isToggledMenuButton));
+    if (window.innerWidth < 1000) {
+      dispatch(toggleMenuButtonAction(!isToggledMenuButton));
+    }
+    console.log(window.innerWidth);
   }
-  console.log("isToggledMenuButton is " + isToggledMenuButton);
 
   return (
     <>

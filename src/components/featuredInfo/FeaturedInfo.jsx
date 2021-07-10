@@ -35,9 +35,7 @@ const FeaturedInfo = () => {
             <div className="item_left">
               <span className="pendingOrdersTitle">Pending orders</span>
             </div>
-
           </div>
-
         </div>
         <div className="right_container">
           <div className="item">

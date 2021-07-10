@@ -78,6 +78,9 @@ const Orders = () => {
 
   return (
     <div className="orders">
+      <div className="titleContainer">
+        <h1 className="title">Orders</h1>
+      </div>
       <DataGrid rows={data} columns={columns} pageSize={6} disableSelectionOnClick />
     </div>
   );
