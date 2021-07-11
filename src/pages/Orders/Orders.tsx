@@ -1,5 +1,5 @@
 
-import './orders.css';
+import styles from './orders.module.scss';
 import React, { useState } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { DeleteOutline } from "@material-ui/icons"
@@ -51,8 +51,8 @@ const Orders = () => {
       field: 'orders', headerName: "Orders", width: 140, renderCell: (params: any) => {
         return (
           <>
-            <Link className='orderLink' to={`/orders/${params.data.id}`} >
-              <button className="orderLinkButton">order summary</button>
+            <Link className={styles.orderLink} to={`/orders/${params.data.id}`} >
+              <button className={styles.orderLinkButton}>order summary</button>
             </Link>
           </>
         )
@@ -69,7 +69,7 @@ const Orders = () => {
               /* Крч сначала я просто-так написал, но если-что закомментил может понадобится, но по-моему это будет нелогично добавить edit button для orders для админа так как этот функционал вообще не нужен */
 
             }
-            <DeleteOutline className="customersDelete" onClick={() => handleDelete(params.data.id, params.data.customer_id)} />
+            <DeleteOutline className={styles.ordersDelete} onClick={() => handleDelete(params.data.id, params.data.customer_id)} />
           </>
         )
       }
@@ -77,9 +77,9 @@ const Orders = () => {
   ];
 
   return (
-    <div className="orders">
-      <div className="titleContainer">
-        <h1 className="title">Orders</h1>
+    <div className={styles.orders}>
+      <div className={styles.titleContainer}>
+        <h1 className={styles.title}>Orders</h1>
       </div>
       <DataGrid rows={data} columns={columns} pageSize={6} disableSelectionOnClick />
     </div>

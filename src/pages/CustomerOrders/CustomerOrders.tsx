@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link, Route, useHistory } from 'react-router-dom';
-import './customerOrders.css';
+import styles from './customerOrders.module.scss';
 import { DataGrid } from '@material-ui/data-grid';
 import { DeleteOutline } from "@material-ui/icons"
 import { customers } from '../../data/data';
@@ -47,7 +47,7 @@ function CustomerOrders() {
       field: 'orders', headerName: "Orders", width: 120, renderCell: (params: any) => {
         return (
           <>
-            <button className="orderLinkButton" onClick={() => handleRedirectPage(params.data.id)} >
+            <button className={styles.orderLinkButton} onClick={() => handleRedirectPage(params.data.id)} >
               order summary
             </button>
           </>
@@ -59,9 +59,9 @@ function CustomerOrders() {
         return (
           <>
             <Link to={`/customer/${params.data.id}`} >
-              <button className="customersEdit" >Edit</button>
+              <button className={styles.customersEdit} >Edit</button>
             </Link >
-            <DeleteOutline className="customersDelete" onClick={() => handleDelete(params.data.id)} />
+            <DeleteOutline className={styles.customersDelete} onClick={() => handleDelete(params.data.id)} />
           </>
         )
       }
@@ -69,7 +69,7 @@ function CustomerOrders() {
   ];
 
   return (
-    <div className="customers">
+    <div className={styles.customerOrders}>
       <h1>{customer.firstName} {customer.lastName}'s orders</h1>
       <DataGrid rows={data} columns={columns} pageSize={6} disableSelectionOnClick />
     </div>

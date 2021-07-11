@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./newProduct.css";
+import styles from "./newProduct.module.scss";
 
 import { useDispatch } from 'react-redux';
 import { createProductAction } from '../../store/authReducer';
@@ -25,26 +25,26 @@ const NewProduct: React.FC = () => {
   }
 
   return (
-    <div className="newProduct">
-      <h1 className="newProductTitle">Create New Product</h1>
-      <form className="newProductForm" onSubmit={submit}>
-        <div className="newProductItem">
-          <label className="newProductLabel">Product Name</label>
+    <div className={styles.newProduct}>
+      <h1 className={styles.newProductTitle}>Create New Product</h1>
+      <form className={styles.newProductForm} onSubmit={submit}>
+        <div className={styles.newProductItem}>
+          <label className={styles.newProductLabel}>Product Name</label>
           <input type="text" placeholder="Iphone 12 PRO" required value={productName} onChange={(e) => setProductName(e.target.value)} />
         </div>
-        <div className="newProductItem">
-          <label className="newProductLabel">Quantity</label>
+        <div className={styles.newProductItem}>
+          <label className={styles.newProductLabel}>Quantity</label>
           <input type="number" placeholder="12" required value={quantity} onChange={(e: React.FormEvent<HTMLInputElement>) => setQuantity(parseInt(e.currentTarget.value))} />
         </div>
-        <div className="newProductItem">
-          <label className="newProductLabel" >Price</label>
+        <div className={styles.newProductItem}>
+          <label className={styles.newProductLabel} >Price</label>
           <input type="number" placeholder="400.00" required value={price} onChange={(e: React.FormEvent<HTMLInputElement>) => setPrice(e.currentTarget.value)} />
         </div>
-        <div className="newProductItem">
-          <label className="newProductLabel" >Active</label>
+        <div className={styles.newProductItem}>
+          <label className={styles.newProductLabel} >Active</label>
           <input type="text" placeholder="not-active" required value={status} onChange={(e: React.FormEvent<HTMLInputElement>) => setStatus(e.currentTarget.value)} />
         </div>
-        <button className="newProductButton">Create</button>
+        <button className={styles.newProductButton}>Create</button>
       </form>
     </div>
   )

@@ -1,5 +1,5 @@
 import React from 'react'
-import './featuredInfo.css'
+import styles from './featuredInfo.module.scss'
 
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -9,60 +9,61 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
 const FeaturedInfo = () => {
   return (
     <>
-      <div className="itemContainer">
-        <div className="left_container">
-          <div className="item leftContainerItem1">
-            <div className="item_left">
-              <span className="quantity">0 $</span>
+      <div className={styles.itemContainer}>
+        <div className={styles.left_container}>
+          <div className={`${styles.item} ${styles.leftContainerItem1}`}>
+            <div className={styles.item_left}>
+              <span className={styles.quantity}>0 $</span>
               <br></br>
-              <span className="title">Monthly Revenue</span>
+              <span className={styles.title}>Monthly Revenue</span>
             </div>
-            <div className="item_right">
-              <AttachMoneyIcon className="itemIcon" />
+            <div className={styles.item_right}>
+              <AttachMoneyIcon className={styles.itemIcon} />
             </div>
           </div>
-          <div className="item leftContainerItem2">
-            <div className="item_left">
-              <span className="quantity">0</span>
+          <div className={`${styles.item} ${styles.leftContainerItem2}`}>
+            <div className={styles.item_left}>
+              <span className={styles.quantity}>0</span>
               <br></br>
-              <span className="title">New Orders</span>
+              <span className={styles.title}>New Orders</span>
             </div>
-            <div className="item_right">
-              <ShoppingCartIcon className="itemIcon" />
+            <div className={styles.item_right}>
+              <ShoppingCartIcon className={styles.itemIcon} />
             </div>
           </div>
-          <div className="item leftContainerItem3">
-            <div className="item_left">
-              <span className="pendingOrdersTitle">Pending orders</span>
+          <div className={`${styles.item} ${styles.leftContainerItem3}`}>
+            <div className={styles.item_left}>
+              <span className={styles.pendingOrdersTitle}>Pending orders</span>
             </div>
           </div>
         </div>
-        <div className="right_container">
-          <div className="item">
-            <div className="item_left">
-              <span className="quantity">6</span>
+        <div className={styles.right_container}>
+          <div className={styles.item}>
+            <div className={styles.item_left}>
+              <span className={styles.quantity}>6</span>
               <br></br>
-              <span className="title">Pending Reviews</span>
-              <ul className="list">
-                <li className="list_element">review</li>
-                <li className="list_element">review</li>
-                <li className="list_element">review</li>
-                <li className="list_element">review</li>
-                <li className="list_element">review</li>
+              <span className={styles.title}>Pending Reviews</span>
+              <ul className={styles.list}>
+                <li className={styles.list_element}>review</li>
+                <li className={styles.list_element}>review</li>
+                <li className={styles.list_element}>review</li>
+                <li className={styles.list_element}>review</li>
+                <li className={styles.list_element}>review</li>
+                <li className={styles.list_element}>review</li>
               </ul>
             </div>
-            <div className="item_right">
-              <CommentIcon className="itemIcon" />
+            <div className={styles.item_right}>
+              <CommentIcon className={styles.itemIcon} />
             </div>
           </div>
-          <div className="item">
-            <div className="item_left">
-              <span className="quantity">0 </span>
+          <div className={styles.item}>
+            <div className={styles.item_left}>
+              <span className={styles.quantity}>0 </span>
               <br></br>
-              <span className="title">New Customers</span>
+              <span className={styles.title}>New Customers</span>
             </div>
-            <div className="item_right">
-              <PersonAddIcon className="itemIcon" />
+            <div className={styles.item_right}>
+              <PersonAddIcon className={styles.itemIcon} />
             </div>
           </div>
         </div>

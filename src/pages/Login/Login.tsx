@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './login.css'
+import styles from './login.module.scss'
 
 import { useDispatch } from 'react-redux';
 
@@ -27,26 +27,26 @@ export default function Login() {
   return (
 
     <>
-      <div className="login">
-        <div className="loginContainer">
+      <div className={styles.login}>
+        <div className={styles.loginContainer}>
           <h1>Signin to admin website</h1>
-          <form className="loginForm" onSubmit={submit}>
+          <form className={styles.loginForm} onSubmit={submit}>
             <div
-              className="inputField">
+              className={styles.inputField}>
               <input type="text" required value={username} onChange={(e) => setUsername(e.target.value)} />
               <span></span>
               <label>Username</label>
             </div>
 
             <div
-              className="inputField">
+              className={styles.inputField}>
               <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
               <span></span>
               <label>Password</label>
             </div>
 
-            <div className="buttonParent">
-              <button className="loginButton" type="submit">Login</button>
+            <div className={styles.buttonParent}>
+              <button className={styles.loginButton} type="submit">Login</button>
             </div>
 
           </form>

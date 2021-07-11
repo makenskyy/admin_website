@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './product.css'
+import styles from './product.module.scss'
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
@@ -37,81 +37,81 @@ const Product = () => {
   }
 
   return (
-    <div className="product">
-      <div className="titleContainer">
-        <h1 className="title">Product</h1>
+    <div className={styles.product}>
+      <div className={styles.titleContainer}>
+        <h1 className={styles.title}>Product</h1>
       </div>
-      <div className="container">
-        <div className="show">
-          <div className="showTitleTop">{currentProduct.productName}</div>
-          <div className="showBottom">
-            <span className="showTitle">Product details</span>
+      <div className={styles.container}>
+        <div className={styles.show}>
+          <div className={styles.showTitleTop}>{currentProduct.productName}</div>
+          <div className={styles.showBottom}>
+            <span className={styles.showTitle}>Product details</span>
 
-            <div className="showInfo">
-              <DetailsIcon className="showIcon" />
-              <p className="infoTitle">Quantity:  </p>
-              <span className="showInfoText"> {currentProduct.quantity}</span>
+            <div className={styles.showInfo}>
+              <DetailsIcon className={styles.showIcon} />
+              <p className={styles.infoTitle}>Quantity:  </p>
+              <span className={styles.showInfoText}> {currentProduct.quantity}</span>
             </div>
-            <div className="showInfo">
-              <DetailsIcon className="showIcon" />
-              <p className="infoTitle">Status:  </p>
-              <span className="showInfoText"> {currentProduct.status}</span>
+            <div className={styles.showInfo}>
+              <DetailsIcon className={styles.showIcon} />
+              <p className={styles.infoTitle}>Status: { } </p>
+              <span className={styles.showInfoText}> {currentProduct.status}</span>
             </div>
-            <div className="showInfo">
-              <DetailsIcon className="showIcon" />
-              <p className="infoTitle">Price:  </p>
-              <span className="showInfoText"> ${currentProduct.price}</span>
+            <div className={styles.showInfo}>
+              <DetailsIcon className={styles.showIcon} />
+              <p className={styles.infoTitle}>Price:  </p>
+              <span className={styles.showInfoText}> ${currentProduct.price}</span>
             </div>
 
           </div>
         </div>
-        <div className="update">
-          <span className="updateTitle">Update product details</span>
-          <form className="updateForm" onSubmit={submit}>
-            <div className="updateLeft">
-              <div className="updateItem">
+        <div className={styles.update}>
+          <span className={styles.updateTitle}>Update product details</span>
+          <form className={styles.updateForm} onSubmit={submit}>
+            <div className={styles.updateLeft}>
+              <div className={styles.updateItem}>
                 <label>Product name</label>
                 <input
                   type="text"
                   placeholder={currentProduct.productName}
-                  className="updateInput"
+                  className={styles.updateInput}
                   value={productName}
                   onChange={(e) => setProductName(e.target.value)}
                 />
               </div>
-              <div className="updateItem">
+              <div className={styles.updateItem}>
                 <label>Quantity </label>
                 <input
                   type="text"
                   placeholder={currentProduct.quantity}
-                  className="updateInput"
+                  className={styles.updateInput}
                   value={quantity}
                   onChange={(e) => setQuantity(parseInt(e.target.value))}
                 />
               </div>
-              <div className="updateItem">
+              <div className={styles.updateItem}>
                 <label>Status</label>
                 <input
                   type="text"
                   placeholder={currentProduct.status}
-                  className="updateInput"
+                  className={styles.updateInput}
                   value={status}
                   onChange={(e) => setStatus(e.target.value)}
                 />
               </div>
-              <div className="updateItem">
+              <div className={styles.updateItem}>
                 <label>Price</label>
                 <input
                   type="text"
                   placeholder={currentProduct.price}
-                  className="updateInput"
+                  className={styles.updateInput}
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
             </div>
-            <div className="updateRight">
-              <button className="updateButton">Update</button>
+            <div className={styles.updateRight}>
+              <button className={styles.updateButton}>Update</button>
             </div>
           </form>
         </div>

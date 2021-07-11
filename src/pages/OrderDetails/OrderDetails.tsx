@@ -1,7 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router';
 import { useState } from 'react';
-import './orderDetails.css';
+import styles from './orderDetails.module.scss';
+// import './orderDetails.css';
 
 import { customers, orders } from '../../data/data';
 
@@ -28,64 +29,63 @@ export const OrderDetails: React.FC = () => {
   // тут тоже так же
 
   return (
-    <div className="order">
-      <h2 className="orderTitle">{id} ID order in detail</h2>
-      <div className="container">
-        <div className="orderSummary">
-          <div className="showTitle">
-            <div className="showTitleText">Order summary</div>
-            <div className="showTitleConfirmed">Confirmed</div>
+    <div className={styles.order}>
+      <h2 className={styles.orderTitle}>{id} ID order in detail</h2>
+      <div className={styles.container}>
+        <div className={styles.orderSummary}>
+          <div className={styles.showTitle}>
+            <div className={styles.showTitleText}>Order summary</div>
+            <div className={styles.showTitleConfirmed}>Confirmed</div>
           </div>
-          <div className="summaryItem">
-            <div className="summaryItemLeft">Order created</div>
-            <div className="summaryItemRight">{order.date}</div>
+          <div className={styles.summaryItem}>
+            <div className={styles.summaryItemLeft}>Order created</div>
+            <div className={styles.summaryItemRight}>{order.date}</div>
           </div>
-          <div className="summaryItem">
-            <div className="summaryItemLeft">Item price</div>
-            <div className="summaryItemRight">{order.total}</div>
+          <div className={styles.summaryItem}>
+            <div className={styles.summaryItemLeft}>Item price</div>
+            <div className={styles.summaryItemRight}>{order.total}</div>
           </div>
-          <div className="summaryItem">
-            <div className="summaryItemLeft">Shipping price</div>
-            <div className="summaryItemRight">$1.00</div>
+          <div className={styles.summaryItem}>
+            <div className={styles.summaryItemLeft}>Shipping price</div>
+            <div className={styles.summaryItemRight}>$1.00</div>
           </div>
-          <div className="summaryItem">
-            <div className="summaryItemLeft">Payment fee</div>
-            <div className="summaryItemRight">$2.00</div>
+          <div className={styles.summaryItem}>
+            <div className={styles.summaryItemLeft}>Payment fee</div>
+            <div className={styles.summaryItemRight}>$2.00</div>
           </div>
-          <div className="summaryItem">
-            <div className="summaryItemLeft">Discount</div>
-            <div className="summaryItemRight">-$5.70</div>
+          <div className={styles.summaryItem}>
+            <div className={styles.summaryItemLeft}>Discount</div>
+            <div className={styles.summaryItemRight}>-$5.70</div>
           </div>
-          <div className="summaryItem total">
-            <div className="summaryItemLeftTotal">Total</div>
-            <div className="summaryItemRight">${(order.total + 1 + 2 - 5.7).toFixed(2)}</div>
+          <div className={styles.total}>
+            <div className={styles.summaryItemLeftTotal}>Total</div>
+            <div className={styles.summaryItemRight}>${(order.total + 1 + 2 - 5.7).toFixed(2)}</div>
           </div>
-
         </div>
-        <div className="orderDetails">
-          <div className="orderDetailsContainer">
-            <div className="showTitle">
-              <div className="showTitleText">Order details</div>
+        <div className={styles.orderDetails}>
+          <div className={styles.orderDetailsContainer}>
+            <div className={styles.showTitle}>
+              <div className={styles.showTitleText}>Order details</div>
             </div>
-            <div className="orderDetailsItem">
-              <div className="orderDetailsItemLeft">Customer</div>
-              <div className="orderDetailsItemRight">{customer.firstName} {customer.lastName}</div>
+            <div className={styles.orderDetailsItem}>
+              <div className={styles.orderDetailsItemLeft}>Customer</div>
+              <div className={styles.orderDetailsItemRight}>{customer.firstName} {customer.lastName}</div>
             </div>
-            <div className="orderDetailsItem">
-              <div className="orderDetailsItemLeft">Product name</div>
-              <div className="orderDetailsItemRight">{order.productName}</div>
+            <div className={styles.orderDetailsItem}>
+              <div className={styles.orderDetailsItemLeft}>Product name</div>
+              <div className={styles.orderDetailsItemRight}>{order.productName}</div>
             </div>
-            <div className="orderDetailsItem">
-              <div className="orderDetailsItemLeft">Shipping address</div>
-              <div className="orderDetailsItemRight">{order.shippingAddress}</div>
+            <div className={styles.orderDetailsItem}>
+              <div className={styles.orderDetailsItemLeft}>Shipping address</div>
+              <div className={styles.orderDetailsItemRight}>{order.shippingAddress}</div>
             </div>
-            <div className="orderDetailsItem">
-              <div className="orderDetailsItemLeft">Payment method</div>
-              <div className="orderDetailsItemRight">{order.paymentMethod}</div>
+            <div className={styles.orderDetailsItem}>
+              <div className={styles.orderDetailsItemLeft}>Payment method</div>
+              <div className={styles.orderDetailsItemRight}>{order.paymentMethod}</div>
             </div>
           </div>
-          <div className="backHistory" >
-            <button className="backHistoryButton" onClick={() => history.push('/orders')}>OK</button>
+          <div className={styles.backHistory} >
+            <button className={styles.backHistoryButton} onClick={() => history.push('/orders')}>OK</button>
           </div>
         </div>
       </div>

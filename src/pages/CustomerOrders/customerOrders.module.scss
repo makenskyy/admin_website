@@ -1,7 +1,20 @@
-.customers {
+.customerOrders {
   flex: 4;
   padding: 20px;
   height: calc(100vh - 80px);
+}
+
+.orderLinkButton {
+  border: none;
+  background-color: #00bcd4;
+  padding: 5px;
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+}
+
+.orderLink {
+  color: white;
 }
 
 .customersEdit{
@@ -17,23 +30,4 @@
 .customersDelete{
     color: red;
     cursor: pointer;
-}
-.orderLink {
-  text-decoration: none;
-  color: black;
-  font-weight: 600;
-}
-
-.orderLinkButton {
-  border: none;
-  background-color: #00bcd4;
-  padding: 5px;
-  border-radius: 2px;
-  color: white;
-  cursor: pointer;
-}
-
-element.style {
-    width: 335px;
-    height: 300px;
 }

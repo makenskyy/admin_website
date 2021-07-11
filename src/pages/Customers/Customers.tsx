@@ -1,5 +1,5 @@
 
-import './customers.css';
+import styles from './customers.module.scss';
 import React, { useState } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { DeleteOutline } from "@material-ui/icons";
@@ -38,8 +38,8 @@ const Customers: React.FunctionComponent = () => {
       field: 'orders', headerName: "Orders", width: 140, renderCell: (params: any) => {
         return (
           <>
-            <Link className='orderLink' to={`/customer/${params.data.id}/orders`} >
-              <button className="orderLinkButton">view orders</button>
+            <Link className={styles.orderLink} to={`/customer/${params.data.id}/orders`} >
+              <button className={styles.orderLinkButton}>view orders</button>
             </Link>
           </>
         )
@@ -50,9 +50,9 @@ const Customers: React.FunctionComponent = () => {
         return (
           <>
             <Link to={`/customer/${params.data.id}`} >
-              <button className="customersEdit">Edit</button>
+              <button className={styles.customersEdit}>Edit</button>
             </Link >
-            <DeleteOutline className="customersDelete" onClick={() => handleDelete(params.data.id)} />
+            <DeleteOutline className={styles.customersDelete} onClick={() => handleDelete(params.data.id)} />
           </>
         )
       }
@@ -60,9 +60,9 @@ const Customers: React.FunctionComponent = () => {
   ];
 
   return (
-    <div className="customers">
-      <div className="titleContainer">
-        <h1 className="title">Orders</h1>
+    <div className={styles.customers}>
+      <div className={styles.titleContainer}>
+        <h1 className={styles.title}>Customers</h1>
       </div>
       <DataGrid rows={data} columns={columns} pageSize={6} disableSelectionOnClick />
     </div>

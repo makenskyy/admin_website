@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './topbar.css';
+import styles from './topbar.module.scss';
 import { useSelector } from 'react-redux';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
@@ -36,29 +36,27 @@ export default function Topbar() {
   const toggleMenuButton = () => {
     dispatch(toggleMenuButtonAction(!isToggledMenuButton));
   }
-  console.log("Icons is " + icons);
 
   return (
     <>
-      <div className="topbar">
-        <div className="topbarWrapper">
-          <div className="topLeft">
+      <div className={styles.topbar}>
+        <div className={styles.topbarWrapper}>
+          <div className={styles.topLeft}>
             {icons ?
               isToggledMenuButton ?
                 <>
-                  <CloseIcon className="topbarMenuIcon" onClick={() => toggleMenuButton()} />
+                  <CloseIcon className={styles.topbarMenuIcon} onClick={() => toggleMenuButton()} />
                 </>
                 :
                 <>
-                  <MenuIcon className="topbarMenuIcon" onClick={() => toggleMenuButton()} />
+                  <MenuIcon className={styles.topbarMenuIcon} onClick={() => toggleMenuButton()} />
                 </>
-              : <span className="logo">Admin page</span>
+              : <span className={styles.logo}>Admin page</span>
             }
           </div>
-          <div className="topRight">
+          <div className={styles.topRight}>
             Welcome, {username}
           </div>
-          {/* если что тут можно добавить типо логаут что-то такое */}
         </div>
       </div>
     </>

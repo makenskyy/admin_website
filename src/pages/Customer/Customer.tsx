@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './customer.css';
+import styles from './customer.module.scss';
 import { useParams } from 'react-router-dom';
 
 import DetailsIcon from '@material-ui/icons/Details';
@@ -34,98 +34,98 @@ export const Customer: React.FC = () => {
 
 
   return (
-    <div className="customer">
-      <div className="titleContainer">
-        <h1 className="title">Edit costumer</h1>
+    <div className={styles.customer}>
+      <div className={styles.titleContainer}>
+        <h1 className={styles.title}>Edit costumer</h1>
       </div>
-      <div className="container">
-        <div className="show">
-          <div className="showTitleTop">
-            <div className="showUsername">{customer.firstName} {customer.lastName}</div>
-            <div className="showPosition">Costumer</div>
+      <div className={styles.container}>
+        <div className={styles.show}>
+          <div className={styles.showTitleTop}>
+            <div className={styles.showUsername}>{customer.firstName} {customer.lastName}</div>
+            <div className={styles.showPosition}>Costumer</div>
           </div>
-          <div className="showBottom">
-            <span className="showTitle">Account details</span>
-            <div className="showInfo">
-              <DetailsIcon className="showIcon" />
-              <span className="showInfoText">{customer.username}</span>
+          <div className={styles.showBottom}>
+            <span className={styles.showTitle}>Account details</span>
+            <div className={styles.showInfo}>
+              <DetailsIcon className={styles.showIcon} />
+              <span className={styles.showInfoText}>{customer.username}</span>
             </div>
 
-            <div className="showInfo">
-              <DetailsIcon className="showIcon" />
-              <span className="showInfoText">{customer.email}</span>
+            <div className={styles.showInfo}>
+              <DetailsIcon className={styles.showIcon} />
+              <span className={styles.showInfoText}>{customer.email}</span>
             </div>
-            <div className="showInfo">
-              <LocationSearching className="showIcon" />
-              <span className="showInfoText">{customer.phoneNumber}</span>
+            <div className={styles.showInfo}>
+              <LocationSearching className={styles.showIcon} />
+              <span className={styles.showInfoText}>{customer.phoneNumber}</span>
             </div>
-            <div className="showInfo">
-              <LocationSearching className="showIcon" />
-              <Link className="ordersLink" to={`/customer/${id}/orders`} >
-                <span className="showInfoText">Orders (click to see)</span>
+            <div className={styles.showInfo}>
+              <LocationSearching className={styles.showIcon} />
+              <Link className={styles.ordersLink} to={`/customer/${id}/orders`} >
+                <span className={styles.showInfoText}>Orders (click to see)</span>
               </Link>
             </div>
 
 
           </div>
         </div>
-        <div className="update">
-          <span className="updateTitle">Update account details</span>
-          <form className="updateForm" onSubmit={submit}>
-            <div className="updateLeft">
-              <div className="updateItem">
+        <div className={styles.update}>
+          <span className={styles.updateTitle}>Update account details</span>
+          <form className={styles.updateForm} onSubmit={submit}>
+            <div className={styles.updateLeft}>
+              <div className={styles.updateItem}>
                 <label>Username</label>
                 <input
                   type="text"
-                  placeholder="david.laid"
-                  className="updateInput"
+                  placeholder={customer.username}
+                  className={styles.updateInput}
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
-              <div className="updateItem">
+              <div className={styles.updateItem}>
                 <label>First Name</label>
                 <input
                   type="text"
-                  placeholder="David"
-                  className="updateInput"
+                  placeholder={customer.firstName}
+                  className={styles.updateInput}
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                 />
               </div>
-              <div className="updateItem">
+              <div className={styles.updateItem}>
                 <label>Last Name</label>
                 <input
                   type="text"
-                  placeholder="David"
-                  className="updateInput"
+                  placeholder={customer.lastName}
+                  className={styles.updateInput}
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                 />
               </div>
-              <div className="updateItem">
+              <div className={styles.updateItem}>
                 <label>Email</label>
                 <input
                   type="text"
-                  placeholder="david.laid@gmail.com"
-                  className="updateInput"
+                  placeholder={customer.email}
+                  className={styles.updateInput}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div className="updateItem">
+              <div className={styles.updateItem}>
                 <label>Phone</label>
                 <input
                   type="text"
-                  placeholder="7-775-775-75-75"
-                  className="updateInput"
+                  placeholder={customer.phoneNumber}
+                  className={styles.updateInput}
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
                 />
               </div>
             </div>
-            <div className="updateRight">
-              <button className="updateButton">Update</button>
+            <div className={styles.updateRight}>
+              <button className={styles.updateButton}>Update</button>
             </div>
           </form>
         </div>

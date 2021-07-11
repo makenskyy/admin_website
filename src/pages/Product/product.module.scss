@@ -1,0 +1,103 @@
+.product {
+  flex: 4;
+  padding: 20px;
+  height: calc(100vh - 80px);
+}
+
+.showTitleTop {
+  font-size: 20px;
+  font-weight: 600;
+}
+.showBottom {
+  margin-bottom: 20px;
+  margin-top: 10px !important;
+}
+.showInfo {
+  display: flex;
+  align-items: center;
+  margin: 10px 5px;
+}
+
+
+.showTitle {
+  color: rgb(140, 140, 135);
+}
+
+.container {
+  margin-top: 10px;
+  display: flex;
+}
+.title {
+  font-weight: 600;
+}
+.titleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.show {
+  flex: 2;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 20px;
+  margin-right: 20px;
+}
+
+.showIcon {
+  font-size: 17px !important;
+  margin-right: 5px;
+}
+.update {
+  flex: 3;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 20px;
+  margin-left: 20px;
+}
+.updateTitle {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.updateForm {
+  margin-top: 0 !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.updateItem {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+
+  > label {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  > input {
+    width: 60%;
+    border: none;
+    border-bottom: 1px solid;
+    outline: none;
+  }
+}
+.updateRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+
+.updateLeft {
+  flex: 4;
+}
+
+.updateButton {
+  border: none;
+  background-color: #00bcd4;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  color: #FFF;
+  font-size: 15px;
+}

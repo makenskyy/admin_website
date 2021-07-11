@@ -10,7 +10,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  box-shadow: rgb(0 0 0 / 12%) 0px 1px 6px, rgb(0 0 0 / 12%) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   transform: translate(-50%, -50%);
   width: 380px;
   background-color: white;
@@ -89,7 +89,7 @@
   font-weight: 600;
   cursor: pointer;
   outline: none;
-  box-shadow: rgb(0 0 0 / 12%) 0px 1px 6px, rgb(0 0 0 / 12%) 0px 1px 4px;
+  box-shadow:rgba(0, 0, 0, 0.16) 0px 1px 4px;
   margin-bottom: 30px;
 
 }

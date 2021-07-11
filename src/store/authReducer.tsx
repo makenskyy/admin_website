@@ -19,14 +19,14 @@ interface actionState {
 }
 
 const defaultState: typeState = {
-  isToggledMenuButton: true,
-  isLoggedIn: true,
+  isToggledMenuButton: false,
+  isLoggedIn: false,
   authInfo: {
-    username: "myrza",
+    username: "",
   },
-  customers: customers,
-  products: products,
-  orders: orders,
+  customers: [],
+  products: [],
+  orders: [],
 }
 
 const LOGIN_USER = "LOGIN_USER";

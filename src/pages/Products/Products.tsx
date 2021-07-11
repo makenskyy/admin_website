@@ -1,5 +1,5 @@
 
-import './products.css';
+import styles from './products.module.scss';
 import React, { useState } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { DeleteOutline } from "@material-ui/icons"
@@ -43,9 +43,9 @@ export default function Products() {
         return (
           <>
             <Link to={`/product/${params.data.id}`} >
-              <button className="productsEdit">Edit</button>
+              <button className={styles.productsEdit}>Edit</button>
             </Link >
-            <DeleteOutline className="productsDelete" onClick={() => handleDelete(params.data.id)} />
+            <DeleteOutline className={styles.productsDelete} onClick={() => handleDelete(params.data.id)} />
           </>
         )
       }
@@ -53,11 +53,11 @@ export default function Products() {
   ];
 
   return (
-    <div className="products">
-      <div className="titleContainer">
-        <h1 className="title">Products</h1>
+    <div className={styles.products}>
+      <div className={styles.titleContainer}>
+        <h1 className={styles.title}>Products</h1>
         <Link to='/newProduct'>
-          <button className="createProduct">Create</button>
+          <button className={styles.createProduct}>Create</button>
         </Link>
       </div>
       <DataGrid rows={data} columns={columns} pageSize={6} disableSelectionOnClick scrollbarSize={15} />

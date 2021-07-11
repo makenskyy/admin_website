@@ -32,3 +32,8 @@
 .title {
   font-weight: 600;
 }
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

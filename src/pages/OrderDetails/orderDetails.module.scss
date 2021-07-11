@@ -11,6 +11,8 @@
 
 .total {
   margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .summaryItemLeft {
@@ -41,7 +43,7 @@
 
 .orderSummary {
   flex: 2;
-  box-shadow: rgb(0 0 0 / 12%) 0px 1px 6px, rgb(0 0 0 / 12%) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 20px;
   margin-right: 20px;
 }
@@ -49,7 +51,7 @@
 
 .orderDetails {
   flex: 3;
-  box-shadow: rgb(0 0 0 / 12%) 0px 1px 6px, rgb(0 0 0 / 12%) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 20px;
   margin-left: 20px;
   display: flex;
@@ -84,4 +86,9 @@
   cursor: pointer;
   color: #FFF;
   font-size: 15px;
+}
+
+.container {
+  margin-top: 10px;
+  display: flex;
 }

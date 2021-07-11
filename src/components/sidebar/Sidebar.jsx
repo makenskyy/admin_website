@@ -1,5 +1,5 @@
 import React from 'react'
-import './sidebar.css'
+import styles from './sidebar.module.scss'
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonIcon from '@material-ui/icons/Person';
@@ -32,44 +32,44 @@ const Sidebar = () => {
   return (
     <>
       {isToggledMenuButton ?
-        <div className="sidebar">
-          <div className="sidebarWrapper">
-            <div className="sidebarMenu">
-              <ul className="sidebarList">
-                <Link className='linkStyle' to='/dashboard' onClick={() => toggleMenuButton()}>
-                  <li className="sidebarListItem">
-                    <DashboardIcon className="sidebarIcon" />
-                    <p className="sidebarListItemName">Dashboard</p>
+        <div className={styles.sidebar}>
+          <div className={styles.sidebarWrapper}>
+            <div className={styles.sidebarMenu}>
+              <ul className={styles.sidebarList}>
+                <Link className={styles.linkStyle} to='/dashboard' onClick={() => toggleMenuButton()}>
+                  <li className={styles.sidebarListItem}>
+                    <DashboardIcon className={styles.sidebarIcon} />
+                    <p className={styles.sidebarListItemName}>Dashboard</p>
                   </li>
                 </Link>
-                <Link className='linkStyle' to='/products' onClick={() => toggleMenuButton()}>
-                  <li className="sidebarListItem">
-                    <StoreIcon className="sidebarIcon" />
-                    <p className="sidebarListItemName">Products</p>
+                <Link className={styles.linkStyle} to='/products' onClick={() => toggleMenuButton()}>
+                  <li className={styles.sidebarListItem}>
+                    <StoreIcon className={styles.sidebarIcon} />
+                    <p className={styles.sidebarListItemName}>Products</p>
                   </li>
                 </Link>
-                <Link className='linkStyle' to='/customers' onClick={() => toggleMenuButton()}>
-                  <li className="sidebarListItem">
-                    <PersonIcon className="sidebarIcon" />
-                    <p className="sidebarListItemName">Customers</p>
+                <Link className={styles.linkStyle} to='/customers' onClick={() => toggleMenuButton()}>
+                  <li className={styles.sidebarListItem}>
+                    <PersonIcon className={styles.sidebarIcon} />
+                    <p className={styles.sidebarListItemName}>Customers</p>
                   </li>
                 </Link>
-                <Link className='linkStyle' to='/orders' onClick={() => toggleMenuButton()}>
-                  <li className="sidebarListItem">
-                    <AllInboxIcon className="sidebarIcon" />
-                    <p className="sidebarListItemName">Orders</p>
+                <Link className={styles.linkStyle} to='/orders' onClick={() => toggleMenuButton()}>
+                  <li className={styles.sidebarListItem}>
+                    <AllInboxIcon className={styles.sidebarIcon} />
+                    <p className={styles.sidebarListItemName}>Orders</p>
                   </li>
                 </Link>
-                <Link className='linkStyle' to='/settings' onClick={() => toggleMenuButton()}>
-                  <li className="sidebarListItem">
-                    <SettingsIcon className="sidebarIcon" />
-                    <p className="sidebarListItemName">Settings</p>
+                <Link className={styles.linkStyle} to='/settings' onClick={() => toggleMenuButton()}>
+                  <li className={styles.sidebarListItem}>
+                    <SettingsIcon className={styles.sidebarIcon} />
+                    <p className={styles.sidebarListItemName}>Settings</p>
                   </li>
                 </Link>
-                <Link className='linkStyle' to='/logout' onClick={logout} onClick={() => toggleMenuButton()}>
-                  <li className="sidebarListItem">
-                    <ExitToAppIcon className="sidebarIcon" />
-                    <p className="sidebarListItemName">Logout</p>
+                <Link className={styles.linkStyle} to='/logout' onClick={logout}>
+                  <li className={styles.sidebarListItem}>
+                    <ExitToAppIcon className={styles.sidebarIcon} />
+                    <p className={styles.sidebarListItemName}>Logout</p>
                   </li>
                 </Link>
               </ul>

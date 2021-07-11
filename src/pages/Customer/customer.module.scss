@@ -26,14 +26,14 @@
 
 .show {
   flex: 2;
-  box-shadow: rgb(0 0 0 / 12%) 0px 1px 6px, rgb(0 0 0 / 12%) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 20px;
   margin-right: 20px;
 }
 
 .update {
   flex: 3;
-  box-shadow: rgb(0 0 0 / 12%) 0px 1px 6px, rgb(0 0 0 / 12%) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 20px;
   margin-left: 20px;
 }
@@ -78,7 +78,7 @@
 .updateForm {
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .updateTitle {
@@ -98,7 +98,7 @@
 } 
 
 .updateItem > input {
-  width: 100%;
+  width: 60%;
   border: none;
   border-bottom: 1px solid;
   outline: none;
@@ -106,6 +106,7 @@
 .updateRight {
   display: flex;
   flex-direction: column-reverse;
+  flex: 1;
 }
 
 
@@ -124,4 +125,8 @@
   text-decoration: none;
   color: black;
   font-weight: 600;
+}
+
+.updateLeft {
+  flex: 4;
 }
