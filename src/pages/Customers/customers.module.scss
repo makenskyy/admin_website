@@ -1,3 +1,4 @@
+@import '../../styles/styles.module.scss';
 .customers {
   flex: 4;
   padding: 20px;
@@ -40,6 +41,3 @@
     justify-content: space-between;
 }
 
-.title {
-  font-weight: 600;
-}

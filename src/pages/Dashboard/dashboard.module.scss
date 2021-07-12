@@ -1,5 +1,14 @@
+@import '../../styles/styles.module.scss';
+
 .dashboard {
   flex: 4;
   padding: 20px;
   height: calc(100vh - 80px);
+}
+
+@media screen and (max-width: 780px) {
+  .dashboard {
+    padding: 0;
+    height: calc(100vh - 80px);
+  }
 }

@@ -19,7 +19,7 @@ interface actionState {
 }
 
 const defaultState: typeState = {
-  isToggledMenuButton: false,
+  isToggledMenuButton: true,
   isLoggedIn: false,
   authInfo: {
     username: "",

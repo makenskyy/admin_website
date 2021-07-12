@@ -1,3 +1,5 @@
+# You have to download node-sass version depending on your node --version, in this case my node is 12.18.2 version
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

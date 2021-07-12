@@ -29,7 +29,7 @@ export default function Login() {
     <>
       <div className={styles.login}>
         <div className={styles.loginContainer}>
-          <h1>Signin to admin website</h1>
+          <h1>Login</h1>
           <form className={styles.loginForm} onSubmit={submit}>
             <div
               className={styles.inputField}>

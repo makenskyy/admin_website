@@ -3,8 +3,8 @@
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
-
   align-items: flex-start;
+
 }
 
 .left_container {
@@ -12,18 +12,32 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   width: 50%;
+
+
+
+  @media screen and (max-width: 380px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .right_container {
   display: flex;
   width: 50%;
+
+    @media screen and (max-width: 380px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
 }
 
 .item {
   z-index: 99;
   flex: 1 auto;
-  margin: 0px 20px;
-  margin-bottom: 20px;
+  margin: 10px 10px 20px 10px;
   padding: 30px;
   border-radius: 2px;
   cursor: pointer;
@@ -31,6 +45,12 @@
   background-color: white;
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 380px ) {
+    width: 80%;
+    align-items: center;
+  }
+
 }
 
   .leftContainerItem1 { grid-area: 1 / 1 / 2 / 2; }
@@ -74,8 +94,6 @@
 }
 
 
-
-
 .pendingOrdersTitle {
   font-weight: 400;
   font-size: 25px;
@@ -87,9 +105,9 @@
     flex-direction: column;
   }
   .left_container {
-    width: 100%;
+    width: 100vw;
   }
   .right_container {
-    width: 100%;
+    width: 100vw;
   }
 }

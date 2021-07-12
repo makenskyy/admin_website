@@ -32,7 +32,7 @@ const Sidebar = () => {
   return (
     <>
       {isToggledMenuButton ?
-        <div className={styles.sidebar}>
+        <div className={`${styles.sidebar} ${styles.show}`}>
           <div className={styles.sidebarWrapper}>
             <div className={styles.sidebarMenu}>
               <ul className={styles.sidebarList}>

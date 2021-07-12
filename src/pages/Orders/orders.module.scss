@@ -1,3 +1,5 @@
+@import '../../styles/styles.module.scss';
+
 .orders {
   flex: 4;
   padding: 20px;
@@ -30,8 +32,4 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.title {
-  font-weight: 600;
 }

@@ -1,3 +1,5 @@
+@import '../../styles/styles.module.scss';
+
 .product {
   flex: 4;
   padding: 20px;
@@ -27,9 +29,7 @@
   margin-top: 10px;
   display: flex;
 }
-.title {
-  font-weight: 600;
-}
+
 .titleContainer {
     display: flex;
     align-items: center;

@@ -20,42 +20,45 @@ import { Provider } from 'react-redux';
 
 import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
 
-import "./App.css"
+import styles from "./App.module.scss"
 import NewProduct from './pages/NewProduct/NewProduct';
 
-import { store } from './store/index';
+import { useTypedSelector } from './store/useTypesSelector';
+
 
 const App: React.FunctionComponent = () => {
+
+  const isToggledMenuButton = useTypedSelector(state => state.authReducer.isToggledMenuButton);
   return (
-    <Provider store={store}>
+    <>
       <Router>
-        <>
-          <PrivateRoute path='/'>
-            <Topbar />
-            <div className="container">
-              <Sidebar />
-              <Switch>
-                <Route exact path='/'>
-                  <Redirect to='/dashboard' />
-                </Route>
-                <Route exact path='/dashboard' component={Dashboard} />
-                <Route exact path='/customers' component={Customers} />
-                <Route exact path='/customer/:id' component={Customer} />
-                <Route exact path='/orders' component={Orders} />
-                <Route exact path='/settings' component={Settings} />
-                <Route exact path='/products' component={Products} />
-                <Route exact path='/product/:id' component={Product} />
-                <Route exact path='/newProduct' component={NewProduct} />
-                <Route exact path='/customer/:id/orders' component={CustomerOrders} />
-                <Route exact path='/orders/:id' component={OrderDetails} />
-                <Route component={NotFound} />
-              </Switch>
-            </div>
-          </PrivateRoute>
-          <Route path='/login' component={Login} />
-        </>
+
+        <PrivateRoute path='/'>
+          <Topbar />
+          <div className={styles.container}>
+            <Sidebar />
+            <Switch>
+              {/* <div className={!isToggledMenuButton ? `${styles.overlay}` : `${styles.overlay} ${styles.addOverlay}`} /> */}
+              <Route exact path='/'>
+                <Redirect to='/dashboard' />
+              </Route>
+              <Route exact path='/dashboard' component={Dashboard} />
+              <Route exact path='/customers' component={Customers} />
+              <Route exact path='/customer/:id' component={Customer} />
+              <Route exact path='/orders' component={Orders} />
+              <Route exact path='/settings' component={Settings} />
+              <Route exact path='/products' component={Products} />
+              <Route exact path='/product/:id' component={Product} />
+              <Route exact path='/newProduct' component={NewProduct} />
+              <Route exact path='/customer/:id/orders' component={CustomerOrders} />
+              <Route exact path='/orders/:id' component={OrderDetails} />
+              <Route component={NotFound} />
+            </Switch>
+          </div>
+        </PrivateRoute>
+        <Route path='/login' component={Login} />
       </Router>
-    </Provider>
+    </ >
   );
 }
 
