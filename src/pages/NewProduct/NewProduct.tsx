@@ -26,7 +26,7 @@ const NewProduct: React.FC = () => {
 
   return (
     <div className={styles.newProduct}>
-      <h1 className={styles.newProductTitle}>Create New Product</h1>
+      <h1 className={styles.title}>Create New Product</h1>
       <form className={styles.newProductForm} onSubmit={submit}>
         <div className={styles.newProductItem}>
           <label className={styles.newProductLabel}>Product Name</label>

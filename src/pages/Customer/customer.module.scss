@@ -24,6 +24,11 @@
 .container {
   margin-top: 10px;
   display: flex;
+
+  @media(max-width: 560px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .show {
@@ -31,6 +36,11 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 20px;
   margin-right: 20px;
+
+  @media(max-width: 560px) {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 }
 
 .update {
@@ -38,6 +48,10 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 20px;
   margin-left: 20px;
+
+  @media(max-width: 560px) {
+    margin-left: 0;
+  }
 }
 
 .showTitleTop {

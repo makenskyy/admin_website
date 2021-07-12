@@ -30,12 +30,6 @@
   margin-bottom: 1rem;
 }
 
-.showTitleText {
-  font-weight: 800;
-  color: black;
-  font-size: 22px;
-}
-
 .showTitleConfirmed {
   border-radius: 2px;
   background-color: rgb(225, 238, 240);
@@ -48,6 +42,10 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   padding: 20px;
   margin-right: 20px;
+  @media(max-width: 560px) {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 }
 
 
@@ -58,6 +56,10 @@
   margin-left: 20px;
   display: flex;
   justify-content: space-between;
+  
+  @media(max-width: 560px) {
+    margin-left: 0;
+  }
 }
 
 .orderDetailsItem {
@@ -93,4 +95,8 @@
 .container {
   margin-top: 10px;
   display: flex;
+    @media(max-width: 560px) {
+    display: flex;
+    flex-direction: column;
+  }
 }

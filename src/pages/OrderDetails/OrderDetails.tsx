@@ -34,7 +34,7 @@ export const OrderDetails: React.FC = () => {
       <div className={styles.container}>
         <div className={styles.orderSummary}>
           <div className={styles.showTitle}>
-            <div className={styles.showTitleText}>Order summary</div>
+            <h1>Order summary</h1>
             <div className={styles.showTitleConfirmed}>Confirmed</div>
           </div>
           <div className={styles.summaryItem}>
@@ -65,7 +65,7 @@ export const OrderDetails: React.FC = () => {
         <div className={styles.orderDetails}>
           <div className={styles.orderDetailsContainer}>
             <div className={styles.showTitle}>
-              <div className={styles.showTitleText}>Order details</div>
+              <h1>Order details</h1>
             </div>
             <div className={styles.orderDetailsItem}>
               <div className={styles.orderDetailsItemLeft}>Customer</div>
@@ -76,7 +76,7 @@ export const OrderDetails: React.FC = () => {
               <div className={styles.orderDetailsItemRight}>{order.productName}</div>
             </div>
             <div className={styles.orderDetailsItem}>
-              <div className={styles.orderDetailsItemLeft}>Shipping address</div>
+              <div className={styles.orderDetailsItemLeft}>Address</div>
               <div className={styles.orderDetailsItemRight}>{order.shippingAddress}</div>
             </div>
             <div className={styles.orderDetailsItem}>
