@@ -37,8 +37,8 @@ const App: React.FunctionComponent = () => {
           <Topbar />
           <div className={styles.container}>
             <Sidebar />
+            <div className={!isToggledMenuButton ? `${styles.overlay}` : `${styles.overlay} ${styles.addOverlay}`} />
             <Switch>
-              {/* <div className={!isToggledMenuButton ? `${styles.overlay}` : `${styles.overlay} ${styles.addOverlay}`} /> */}
               <Route exact path='/'>
                 <Redirect to='/dashboard' />
               </Route>
@@ -53,6 +53,7 @@ const App: React.FunctionComponent = () => {
               <Route exact path='/customer/:id/orders' component={CustomerOrders} />
               <Route exact path='/orders/:id' component={OrderDetails} />
               <Route component={NotFound} />
+              {/* </div> */}
             </Switch>
           </div>
         </PrivateRoute>
