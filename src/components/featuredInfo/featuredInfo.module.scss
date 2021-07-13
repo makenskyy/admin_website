@@ -1,3 +1,6 @@
+@import '../../styles/styles.module.scss';
+
+
 .itemContainer {
   width: 100%;
   display: flex;
@@ -41,7 +44,7 @@
   padding: 30px;
   border-radius: 2px;
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: $box-shadow;
   background-color: white;
   display: flex;
   justify-content: space-between;

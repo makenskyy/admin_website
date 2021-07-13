@@ -1,9 +1,12 @@
+@import '../../styles/styles.module.scss';
+
+
 .sidebar {
   flex: 1;
   position: sticky;
   height: 100vh;
   background-color: white;
-  box-shadow:rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow:$box-shadow;
   border-radius: 3px;
   margin-top: 0 !important;
   max-width: 15rem;
@@ -59,7 +62,7 @@
       position: absolute;
       height: 100vh;
       background-color: white;
-      box-shadow:rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      box-shadow:$box-shadow;
       border-radius: 3px;
       margin-top: 0 !important;
       max-width: 15rem;

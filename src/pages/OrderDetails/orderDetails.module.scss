@@ -39,7 +39,7 @@
 
 .orderSummary {
   flex: 2;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: $box-shadow;
   padding: 20px;
   margin-right: 20px;
   @media(max-width: 560px) {
@@ -51,7 +51,7 @@
 
 .orderDetails {
   flex: 3;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: $box-shadow;
   padding: 20px;
   margin-left: 20px;
   display: flex;

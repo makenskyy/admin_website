@@ -1,6 +1,8 @@
+@import '../../styles/styles.module.scss';
+
 .topbar {
   height: 80px;
-  background-color: #00bcd4;  
+  background-color: $main-color;  
   width: 100vw;
 }
 .topbarWrapper {
