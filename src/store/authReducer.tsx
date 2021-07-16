@@ -61,9 +61,10 @@ const TOGGLE_MENU_BUTTON = "TOGGLE_MENU_BUTTON";
 export const authReducer = (state = defaultState, action: actionState): typeState => {
   switch (action.type) {
     case LOGIN_USER_SUCCESS:
+      console.log(action.payload);
       return { authInfo: action.payload, isLoggedIn: true, customers: customers, products: products, orders: orders, isToggledMenuButton: true, error: "" };
     case LOGIN_USER_FAIL:
-      return { ...state, error: action.payload.message };
+      return { ...state, error: action.payload };
     case LOGOUT_USER:
       return { isLoggedIn: false, authInfo: { username: "", email: "", phone_number: "", first_name: "", last_name: "" }, customers: [], products: [], orders: [], isToggledMenuButton: true, error: "" };
     case PRODUCT_CREATE:
@@ -102,12 +103,8 @@ export const authReducer = (state = defaultState, action: actionState): typeStat
 
 export const loginAction = (payload: any) => ({ type: USER_LOGIN_SAGA, payload });
 
-export const loginSuccessAction = (payload: any) => {
+export const loginSuccessAction = (payload: any) => ({ type: LOGIN_USER_SUCCESS, payload })
 
-  return {
-    type: LOGIN_USER_SUCCESS, payload
-  };
-}
 export const loginFailAction = (payload: any) => {
   return { type: LOGIN_USER_FAIL, payload };
 }

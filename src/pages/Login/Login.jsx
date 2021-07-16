@@ -46,6 +46,8 @@ export default function Login() {
   }
   const isLoggedIn = useTypedSelector(state => state.authReducer.isLoggedIn);
   { isLoggedIn && history.push('/dashboard') }
+  const errorMessage = useTypedSelector(state => state.authReducer.error);
+
 
 
   return (
@@ -56,18 +58,23 @@ export default function Login() {
           <h1>Login</h1>
           <form className={styles.loginForm} onSubmit={submit}>
             <div
-              className={styles.inputField}>
+              className={`${styles.usernameField} + ${styles.inputField}`}>
               <input type="text" required value={username} onChange={(e) => setUsername(e.target.value)} />
               <span></span>
               <label>Username</label>
             </div>
 
             <div
-              className={styles.inputField}>
+              className={`${styles.passwordField} + ${styles.inputField}`}>
               <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
               <span></span>
               <label>Password</label>
             </div>
+            {errorMessage &&
+              <div className={styles.error}>
+                <p>{errorMessage}</p>
+              </div>
+            }
 
             <div className={styles.buttonParent}>
               <button className={styles.loginButton} type="submit">Login</button>

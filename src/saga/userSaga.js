@@ -30,7 +30,6 @@ async function login(payload) {
 
     const json = await response.json();
 
-
     return json;
 
   } catch (err) {
@@ -40,19 +39,13 @@ async function login(payload) {
 
 
 function* loginWorker(payload) {
-  const data = yield call(login, payload);
-  if (data.status === 200) yield put(loginSuccessAction(data));
-  else yield put(loginFailAction(data));
+  const response = yield call(login, payload);
+  if (response.jwt) yield put(loginSuccessAction(response.user))
+  else {
+    yield put(loginFailAction(response.message));
+  }
 }
 
 export function* loginWatcher() {
   yield takeEvery(USER_LOGIN_SAGA, loginWorker);
 }
-
-
-/*
-  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsI…TM1fQ.BRWAqZpGoaBq4rujxvF2PqQVycctkCUO15FleONtz94
-
-  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsI…TYwfQ._MUrpOqHUkqoPcPjVsCmGSf5Pb9xfeFBDUlIyRmRXZo
-
-*/
