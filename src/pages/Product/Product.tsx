@@ -12,7 +12,7 @@ import { useTypedSelector } from '../../store/useTypesSelector';
 const Product = () => {
 
   const useParamsInt = () => {
-    const { id } = useParams<ParamTypes>();
+    const { id } = useParams < ParamTypes > ();
     return parseInt(id);
   }
   // для того что бы парсить из useParams()
@@ -21,13 +21,15 @@ const Product = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
+
+
   const currentProduct = useTypedSelector(state => state.authReducer.products).filter(item => item.id === id)[0];
-  // тут крч после филтера array там нужно было выбрать [0] индекс, потому что там было тот обджект который мне нужен был , а на первом индексе какой-то прототиппа сондай болды
+
 
 
   const [productName, setProductName] = useState("");
   const [price, setPrice] = useState("");
-  const [quantity, setQuantity] = useState<number>(0);
+  const [quantity, setQuantity] = useState < number > (0);
   const [status, setStatus] = useState("");
 
   const submit = (e: React.FormEvent) => {

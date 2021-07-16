@@ -6,23 +6,47 @@ import { useDispatch } from 'react-redux';
 import { loginAction } from '../../store/authReducer';
 
 import { useHistory, Redirect } from 'react-router';
+import { useTypedSelector } from '../../store/useTypesSelector';
+
+import axios from 'axios';
 
 
 export default function Login() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState("");
 
   const dispatch = useDispatch();
   const history = useHistory();
 
 
-  const submit = (event: React.FormEvent) => {
+  const submit = (event /*: React.FormEvent*/) => {
     event.preventDefault();
-    dispatch(loginAction({ username: username }));
-    // < Redirect to='/dashboard' />
-    history.push('/dashboard');
+
+    const payload = { identifier: username, password };
+    dispatch(loginAction(payload));
+
+
+
+    // const data = {
+    //   identifier: username,
+    //   password: password
+    // }
+    // dispatch(loginAction(username, password))
+
+    // axios.post("http://134.209.197.75/auth/local", data)
+    //   .then(res => {
+    //     localStorage.setItem('token', res.jwt);
+    //     dispatch(loginAction({ username: username }));
+    //     history.push('/dashboard');
+    //   }).catch(err => {
+    //     console.log(err)
+    //   })
   }
+  const isLoggedIn = useTypedSelector(state => state.authReducer.isLoggedIn);
+  { isLoggedIn && history.push('/dashboard') }
+
 
   return (
 

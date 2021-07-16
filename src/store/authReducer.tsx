@@ -2,16 +2,26 @@ import { customers } from '../data/data';
 import { products } from '../data/data';
 import { orders } from '../data/data';
 
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+
 interface typeState {
   isToggledMenuButton: boolean,
   isLoggedIn: boolean,
   authInfo: {
-    username: string
+    phone_number: string,
+    first_name: string,
+    last_name: string
+    username: string,
+    email: string
   },
   customers: any[],
   products: any[],
-  orders: any[]
+  orders: any[],
+  error: string
 }
+
+
 
 interface actionState {
   type: string,
@@ -23,14 +33,23 @@ const defaultState: typeState = {
   isLoggedIn: false,
   authInfo: {
     username: "",
+    email: "",
+    phone_number: "",
+    first_name: "",
+    last_name: "",
   },
   customers: [],
   products: [],
   orders: [],
+  error: ""
 }
 
-const LOGIN_USER = "LOGIN_USER";
+const LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS";
+const LOGIN_USER_FAIL = "LOGIN_USER_FAIL";
 const LOGOUT_USER = "LOGOUT_USER";
+
+export const USER_LOGIN_SAGA = "USER_LOGIN_SAGA";
+
 const PRODUCT_CREATE = "PRODUCT_CREATE";
 const PRODUCT_DELETE = "PRODUCT_DELETE";
 const PRODUCT_UPDATE = "PRODUCT_UPDATE";
@@ -41,10 +60,12 @@ const TOGGLE_MENU_BUTTON = "TOGGLE_MENU_BUTTON";
 
 export const authReducer = (state = defaultState, action: actionState): typeState => {
   switch (action.type) {
-    case LOGIN_USER:
-      return { authInfo: action.payload, isLoggedIn: true, customers: customers, products: products, orders: orders, isToggledMenuButton: true };
+    case LOGIN_USER_SUCCESS:
+      return { authInfo: action.payload, isLoggedIn: true, customers: customers, products: products, orders: orders, isToggledMenuButton: true, error: "" };
+    case LOGIN_USER_FAIL:
+      return { ...state, error: action.payload.message };
     case LOGOUT_USER:
-      return { isLoggedIn: false, authInfo: { username: "" }, customers: [], products: [], orders: [], isToggledMenuButton: true };
+      return { isLoggedIn: false, authInfo: { username: "", email: "", phone_number: "", first_name: "", last_name: "" }, customers: [], products: [], orders: [], isToggledMenuButton: true, error: "" };
     case PRODUCT_CREATE:
       return { ...state, products: [...state.products, action.payload] }
     case PRODUCT_DELETE:
@@ -78,8 +99,17 @@ export const authReducer = (state = defaultState, action: actionState): typeStat
   }
 }
 
-export const loginAction = (payload: any) => {
-  return { type: LOGIN_USER, payload };
+
+export const loginAction = (payload: any) => ({ type: USER_LOGIN_SAGA, payload });
+
+export const loginSuccessAction = (payload: any) => {
+
+  return {
+    type: LOGIN_USER_SUCCESS, payload
+  };
+}
+export const loginFailAction = (payload: any) => {
+  return { type: LOGIN_USER_FAIL, payload };
 }
 
 export const logoutAction = () => {
