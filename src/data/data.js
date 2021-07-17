@@ -14,7 +14,7 @@ export const orders = [
   {
     id: 41242, productName: products[1].productName, date: "2020-25-08", total: 250.30, delivered: "No", paymentMethod: "VISA", shippingAddress: "Astana",
     customer_id: 1
-  },
+  }, 
   {
     id: 41243, productName: products[2].productName, date: "2021-13-07", total: 400.23, delivered: "No", paymentMethod: "MasterCard", shippingAddress: "Monaco",
     customer_id: 2
