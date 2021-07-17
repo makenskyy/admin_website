@@ -7,6 +7,12 @@ import { useTypedSelector } from '../../store/useTypesSelector';
 import { useDispatch } from 'react-redux';
 import { loginSuccessAction } from '../../store/authReducer';
 
+import Sidebar from '../../components/sidebar/Sidebar';
+import Topbar from '../../components/topbar/Topbar';
+import { FunctionComponentElement } from 'react';
+
+import styles from './PrivateRoute.module.scss';
+
 
 const PrivateRoute: React.FunctionComponent<ParamTypes> = ({ children, path, ...rest }) => {
 
@@ -15,10 +21,17 @@ const PrivateRoute: React.FunctionComponent<ParamTypes> = ({ children, path, ...
   const [isAuth, setIsAuth] = useState(false);
 
 
+
   useEffect(() => {
-    const data = localStorage.getItem('userInfo');
+    let data = localStorage.getItem('userInfo')
+
+    const token = localStorage.getItem('jwt');
     if (data) {
-      dispatch(loginSuccessAction('helloo'));
+      data = JSON.parse(data);
+    }
+    console.log(data);
+    if (token) {
+      dispatch(loginSuccessAction(data));
       setIsAuth(true);
     }
   }, [])
@@ -27,6 +40,7 @@ const PrivateRoute: React.FunctionComponent<ParamTypes> = ({ children, path, ...
 
 
   return (
+
     <Route {...rest} render={() => {
       return isAuth ? children :
         <Redirect to='/login' />
@@ -37,6 +51,8 @@ const PrivateRoute: React.FunctionComponent<ParamTypes> = ({ children, path, ...
 export default PrivateRoute;
 
 interface ParamTypes {
-  children: any;
-  path: string
+  children?: any;
+  path?: string,
+  exact?: boolean,
+  component?: any
 }

@@ -26,6 +26,7 @@ export default function Topbar() {
       dispatch(toggleMenuButtonAction(true));
     }
   }
+
   useEffect(() => {
     showSidebar();
   }, []);

@@ -22,7 +22,10 @@ const Shops /*: React.FunctionComponent*/ = () => {
   const [data, setData] = useState/*<any>*/(shops);
 
   useEffect(() => {
+
     setData(shops);
+
+
   }, [shops]);
 
 

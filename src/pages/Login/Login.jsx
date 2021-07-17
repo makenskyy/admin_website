@@ -4,8 +4,7 @@ import styles from './login.module.scss'
 import { useDispatch } from 'react-redux';
 
 import { hideErrorMesssage, loginAction } from '../../store/authReducer';
-
-import { useHistory, Redirect } from 'react-router';
+import { Redirect, useHistory } from "react-router-dom";
 import { useTypedSelector } from '../../store/useTypesSelector';
 
 import axios from 'axios';
@@ -15,10 +14,10 @@ export default function Login() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [isVisible, setIsVisible] = useState(false);
 
   const errorMessage = useTypedSelector(state => state.authReducer.error);
 
+  const [dummy, setDummy] = useState(false);
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -31,6 +30,7 @@ export default function Login() {
   }, [errorMessage])
 
 
+  const isLoggedIn = useTypedSelector(state => state.authReducer.isLoggedIn);
 
   const submit = (event /*: React.FormEvent*/) => {
     event.preventDefault();
@@ -38,9 +38,12 @@ export default function Login() {
     const payload = { identifier: username, password };
     dispatch(loginAction(payload));
 
+    setDummy(true);
+
+    console.log(isLoggedIn);
+
   }
-  const isLoggedIn = useTypedSelector(state => state.authReducer.isLoggedIn);
-  { isLoggedIn && history.push('/dashboard') }
+
 
 
 
