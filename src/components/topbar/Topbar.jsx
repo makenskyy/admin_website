@@ -17,7 +17,6 @@ export default function Topbar() {
   const isToggledMenuButton = useTypedSelector(state => state.authReducer.isToggledMenuButton);
 
 
-
   const showSidebar = () => {
     if (window.innerWidth < 1000) {
       dispatch(toggleMenuButtonAction(false));
@@ -36,6 +35,7 @@ export default function Topbar() {
   const toggleMenuButton = () => {
     dispatch(toggleMenuButtonAction(!isToggledMenuButton));
   }
+
 
   return (
     <>

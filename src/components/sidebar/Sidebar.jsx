@@ -26,8 +26,8 @@ const Sidebar = () => {
     if (window.innerWidth < 1000) {
       dispatch(toggleMenuButtonAction(!isToggledMenuButton));
     }
-    console.log(window.innerWidth);
   }
+
 
   return (
     <>
@@ -48,6 +48,12 @@ const Sidebar = () => {
                     <p className={styles.sidebarListItemName}>Products</p>
                   </li>
                 </Link>
+                <Link className={styles.linkStyle} to='/shops' onClick={() => toggleMenuButton()}>
+                  <li className={styles.sidebarListItem}>
+                    <StoreIcon className={styles.sidebarIcon} />
+                    <p className={styles.sidebarListItemName}>Shops</p>
+                  </li>
+                </Link>
                 <Link className={styles.linkStyle} to='/customers' onClick={() => toggleMenuButton()}>
                   <li className={styles.sidebarListItem}>
                     <PersonIcon className={styles.sidebarIcon} />
@@ -66,7 +72,7 @@ const Sidebar = () => {
                     <p className={styles.sidebarListItemName}>Settings</p>
                   </li>
                 </Link>
-                <Link className={styles.linkStyle} to='/logout' onClick={logout}>
+                <Link className={styles.linkStyle} to='/logout' onClick={() => logout()}>
                   <li className={styles.sidebarListItem}>
                     <ExitToAppIcon className={styles.sidebarIcon} />
                     <p className={styles.sidebarListItemName}>Logout</p>

@@ -18,6 +18,7 @@ interface typeState {
   customers: any[],
   products: any[],
   orders: any[],
+  shops: any[],
   error: string
 }
 
@@ -38,6 +39,7 @@ const defaultState: typeState = {
     first_name: "",
     last_name: "",
   },
+  shops: [],
   customers: [],
   products: [],
   orders: [],
@@ -49,6 +51,11 @@ const LOGIN_USER_FAIL = "LOGIN_USER_FAIL";
 const LOGOUT_USER = "LOGOUT_USER";
 
 export const USER_LOGIN_SAGA = "USER_LOGIN_SAGA";
+export const FETCH_SHOPS_SAGA = "FETCH_SHOPS_SAGA";
+
+export const FETCH_SHOPS = "FETCH_SHOPS";
+
+const HIDE_ERROR_MESSAGE = "HIDE_ERROR_MESSAGE";
 
 const PRODUCT_CREATE = "PRODUCT_CREATE";
 const PRODUCT_DELETE = "PRODUCT_DELETE";
@@ -61,12 +68,17 @@ const TOGGLE_MENU_BUTTON = "TOGGLE_MENU_BUTTON";
 export const authReducer = (state = defaultState, action: actionState): typeState => {
   switch (action.type) {
     case LOGIN_USER_SUCCESS:
-      console.log(action.payload);
-      return { authInfo: action.payload, isLoggedIn: true, customers: customers, products: products, orders: orders, isToggledMenuButton: true, error: "" };
+      return { ...state, authInfo: action.payload, isLoggedIn: true, customers: customers, products: products, orders: orders, isToggledMenuButton: true, error: "" };
     case LOGIN_USER_FAIL:
       return { ...state, error: action.payload };
     case LOGOUT_USER:
-      return { isLoggedIn: false, authInfo: { username: "", email: "", phone_number: "", first_name: "", last_name: "" }, customers: [], products: [], orders: [], isToggledMenuButton: true, error: "" };
+      localStorage.removeItem('userInfo');
+      localStorage.removeItem('jwt');
+      return { isLoggedIn: false, authInfo: { username: "", email: "", phone_number: "", first_name: "", last_name: "" }, customers: [], products: [], orders: [], isToggledMenuButton: true, error: "", shops: [] };
+    case FETCH_SHOPS:
+      return { ...state, shops: action.payload };
+    case HIDE_ERROR_MESSAGE:
+      return { ...state, error: "" };
     case PRODUCT_CREATE:
       return { ...state, products: [...state.products, action.payload] }
     case PRODUCT_DELETE:
@@ -100,14 +112,17 @@ export const authReducer = (state = defaultState, action: actionState): typeStat
   }
 }
 
+export const fetchShopsSagaAction = () => ({ type: FETCH_SHOPS_SAGA });
+
+export const fetchShopsAction = (payload: any) => ({ type: FETCH_SHOPS, payload });
 
 export const loginAction = (payload: any) => ({ type: USER_LOGIN_SAGA, payload });
 
 export const loginSuccessAction = (payload: any) => ({ type: LOGIN_USER_SUCCESS, payload })
 
-export const loginFailAction = (payload: any) => {
-  return { type: LOGIN_USER_FAIL, payload };
-}
+export const loginFailAction = (payload: any) => ({ type: LOGIN_USER_FAIL, payload })
+
+export const hideErrorMesssage = (payload: any) => ({ type: HIDE_ERROR_MESSAGE });
 
 export const logoutAction = () => {
   return { type: LOGOUT_USER };

@@ -30,6 +30,10 @@ async function login(payload) {
 
     const json = await response.json();
 
+
+    localStorage.setItem('jwt', json.jwt);
+    localStorage.setItem('userInfo', JSON.stringify(json.user));
+
     return json;
 
   } catch (err) {

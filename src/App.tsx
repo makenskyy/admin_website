@@ -13,6 +13,8 @@ import OrderDetails from './pages/OrderDetails/OrderDetails';
 import CustomerOrders from './pages/CustomerOrders/CustomerOrders';
 import NotFound from './pages/NotFound/NotFound';
 
+import Shops from './pages/Shops/Shops';
+
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Customer } from './pages/Customer/Customer';
 
@@ -29,10 +31,12 @@ import { useTypedSelector } from './store/useTypesSelector';
 const App: React.FunctionComponent = () => {
 
   const isToggledMenuButton = useTypedSelector(state => state.authReducer.isToggledMenuButton);
+
+  const isLoggedIn = useTypedSelector(state => state.authReducer.isLoggedIn);
+
   return (
     <>
       <Router>
-
         <PrivateRoute path='/'>
           <Topbar />
           <div className={styles.container}>
@@ -52,13 +56,16 @@ const App: React.FunctionComponent = () => {
               <Route exact path='/newProduct' component={NewProduct} />
               <Route exact path='/customer/:id/orders' component={CustomerOrders} />
               <Route exact path='/orders/:id' component={OrderDetails} />
+              <Route exact path='/shops' component={Shops} />
+              <Route exact path='/logout'>
+                <Redirect to='/login' />
+              </Route>
               <Route component={NotFound} />
-              {/* </div> */}
             </Switch>
           </div>
-        </PrivateRoute>
+        </PrivateRoute >
         <Route path='/login' component={Login} />
-      </Router>
+      </Router >
     </ >
   );
 }
