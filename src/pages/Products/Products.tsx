@@ -3,9 +3,8 @@ import styles from './products.module.scss';
 import React, { useState } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import { DeleteOutline } from "@material-ui/icons"
-import { Redirect } from 'react-router-dom';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { deleteProductAction } from '../../store/authReducer';
 
 import { Link } from 'react-router-dom';

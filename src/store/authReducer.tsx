@@ -2,8 +2,6 @@ import { customers } from '../data/data';
 import { products } from '../data/data';
 import { orders } from '../data/data';
 
-import axios from 'axios';
-import { useHistory } from 'react-router-dom';
 
 interface typeState {
   isToggledMenuButton: boolean,
@@ -53,7 +51,7 @@ const LOGOUT_USER = "LOGOUT_USER";
 export const USER_LOGIN_SAGA = "USER_LOGIN_SAGA";
 export const FETCH_SHOPS_SAGA = "FETCH_SHOPS_SAGA";
 
-export const FETCH_SHOPS = "FETCH_SHOPS";
+const FETCH_SHOPS = "FETCH_SHOPS";
 
 const HIDE_ERROR_MESSAGE = "HIDE_ERROR_MESSAGE";
 

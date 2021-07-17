@@ -52,9 +52,3 @@ const NewProduct: React.FC = () => {
 
 export default NewProduct;
 
-interface States {
-  productName: string,
-  price: string,
-  quantity: number,
-  status: string
-}

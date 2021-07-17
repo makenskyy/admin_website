@@ -1,9 +1,7 @@
-import { put, takeEvery, all, call } from 'redux-saga/effects'
+import { put, takeEvery, call } from 'redux-saga/effects'
 
 import { loginSuccessAction, USER_LOGIN_SAGA, loginFailAction } from '../store/authReducer';
-import { axios } from 'axios';
 
-import { useHistory } from 'react-router-dom';
 
 async function login(payload) {
   try {
@@ -19,7 +17,7 @@ async function login(payload) {
           status: resp.status,
           message: "Incorrect password or email"
         }
-      } else if (resp.status == 500) {
+      } else if (resp.status === 500) {
         throw {
           status: resp.status,
           message: "Server error"

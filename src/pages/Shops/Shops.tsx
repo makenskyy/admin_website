@@ -1,32 +1,23 @@
 
 import styles from './shops.module.scss';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { DataGrid } from '@material-ui/data-grid';
-import { DeleteOutline } from "@material-ui/icons";
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteCustomerAction, fetchShopsSagaAction } from '../../store/authReducer';
+import { fetchShopsSagaAction } from '../../store/authReducer';
 import { useTypedSelector } from '../../store/useTypesSelector';
 
-const Shops /*: React.FunctionComponent*/ = () => {
+const Shops: React.FunctionComponent = () => {
 
   const dispatch = useDispatch();
 
 
   useEffect(() => {
     dispatch(fetchShopsSagaAction());
-  }, [])
+  }, [dispatch])
 
-  const shops = useSelector(state => state.authReducer.shops);
+  const shops = useTypedSelector(state => state.authReducer.shops);
 
-  const [data, setData] = useState/*<any>*/(shops);
-
-  useEffect(() => {
-
-    setData(shops);
-
-
-  }, [shops]);
 
 
   // const handleDelete = (id /*: number*/) => {
@@ -50,7 +41,7 @@ const Shops /*: React.FunctionComponent*/ = () => {
       <div className={styles.titleContainer}>
         <h1 className={styles.title}>Shops</h1>
       </div>
-      <DataGrid rows={data} columns={columns} pageSize={6} disableSelectionOnClick />
+      <DataGrid rows={shops} columns={columns} pageSize={6} disableSelectionOnClick />
     </div>
   );
 }

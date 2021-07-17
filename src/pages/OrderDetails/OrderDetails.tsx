@@ -1,6 +1,5 @@
 import React from 'react'
 import { useParams } from 'react-router';
-import { useState } from 'react';
 import styles from './orderDetails.module.scss';
 // import './orderDetails.css';
 

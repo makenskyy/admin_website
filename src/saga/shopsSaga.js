@@ -1,4 +1,4 @@
-import { put, takeEvery, all, call } from 'redux-saga/effects'
+import { put, takeEvery, call } from 'redux-saga/effects'
 import { fetchShopsAction, FETCH_SHOPS_SAGA } from "../store/authReducer";
 
 async function fetchShops() {
