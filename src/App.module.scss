@@ -4,20 +4,23 @@
   margin: 0 !important;
   padding: 0 !important;
   width: 100%;
+
+
+  // comment esli chto
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 910px) {
   .overlay {
-      position: fixed; 
+      position: absolute;
       display: none; 
       top: 80px;
       left: 0;
       right: 0;
       bottom: 0;
+      // bottom: -100vh;
       background-color: rgba(0,0,0,0.5); 
       z-index: 1000;
       cursor: pointer;
-      height: 100vh;
   }
   .addOverlay {
     display: block;

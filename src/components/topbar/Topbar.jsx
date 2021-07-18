@@ -18,7 +18,7 @@ export default function Topbar() {
 
 
   const showSidebar = () => {
-    if (window.innerWidth < 1000) {
+    if (window.innerWidth <= 1000) {
       dispatch(toggleMenuButtonAction(false));
       showIcons(true);
     } else {
