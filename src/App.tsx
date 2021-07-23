@@ -35,6 +35,7 @@ const App: React.FunctionComponent = () => {
 
         <PrivateRoute path='/'>
           <Topbar />
+          Hello guys
           <div className={styles.container}>
             <Sidebar />
             <div className={!isToggledMenuButton ? `${styles.overlay}` : `${styles.overlay} ${styles.addOverlay}`} />
